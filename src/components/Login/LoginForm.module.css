@@ -1,0 +1,34 @@
+.main{
+    position: absolute;
+    width: 476px;
+    height: 639px;
+    right: 80px;
+    top: 149px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo{
+    height: 60px;
+    margin-bottom: .5rem;
+}
+
+.input{
+    margin-bottom: 1rem;
+    width: 80%;
+}
+
+.link{
+    color: #EE4035;
+    margin-bottom: .5rem;
+    width: 80%;
+}
+
+.button{
+    background: #EE4035;
+    margin-top: .5rem;
+    padding: 1rem;
+    width: 30%;
+    border-radius: 999px;
+}

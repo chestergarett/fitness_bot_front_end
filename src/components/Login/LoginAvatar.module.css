@@ -1,0 +1,20 @@
+.container{
+    position: absolute;
+    width: 900.6px;
+    height: 1328.05px;
+    left: -122.85px;
+    top: -290px;
+    background: linear-gradient(178.2deg, #EE4035 10.1%, #6D63FF 108.87%);
+    box-shadow: 20px 0px 30px 2px rgba(6, 3, 10, 0.2);
+    transform: rotate(14.8deg);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainPic{
+    background: transparent;
+    height: 600px;
+    transform: rotate(-10deg);
+}
