@@ -15,20 +15,34 @@
 }
 
 .input{
-    margin-bottom: 1rem;
-    width: 80%;
+    margin-bottom: 1rem !important;
+    width: 80% !important;
 }
 
 .link{
-    color: #EE4035;
-    margin-bottom: .5rem;
-    width: 80%;
+    color: #EE4035 !important;
+    margin-bottom: .5rem !important;
+    width: 80% !important;
 }
 
 .button{
-    background: #EE4035;
-    margin-top: .5rem;
-    padding: 1rem;
-    width: 30%;
-    border-radius: 999px;
+    background: #EE4035 !important;
+    margin-top: .5rem !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+    width: 60% !important;
+    border-radius: 999px !important;
+}
+
+.button2{
+    margin-top: 1rem !important;
+    margin-bottom: .7rem !important;
+    padding: 1rem !important;
+    width: 60% !important;
+    border-radius: 999px !important;
+}
+
+.divider{
+    border-color: #D3D3D3 !important;
+    width: 80%;
 }

@@ -1,10 +1,15 @@
 
 import './App.css';
+import { useState } from 'react';
 import LoginMain from './components/Login/LoginMain';
+import UserProvider from './context/user-provider.js';
+
 
 function App() {
   return (
-    <LoginMain/>
+    <UserProvider>
+      <LoginMain/>
+    </UserProvider>
   );
 }
 
