@@ -1,0 +1,29 @@
+.tray{
+    margin: 1rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    background-color: whitesmoke !important;
+}
+
+.card{
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.heading{
+    letter-spacing: .5px !important;
+    margin-bottom: .5rem !important;
+    font-size: 15px !important;
+    color: #36454F !important;
+}
+
+.subHeading{
+    height: 4rem;
+    overflow-y: scroll;
+}
+
+.image{
+    object-fit: contain !important;
+}

@@ -1,0 +1,42 @@
+.main{
+    display: flex;
+    margin: .5rem;
+}
+
+.pic{
+    height: 60vh;
+    width: 70vw;
+    margin-top: 1rem;
+}
+
+.text{
+    width: 30%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.emphasis{
+    font-weight: bold;
+    color: #EE4035;
+}
+
+.link{
+    width: 60%;
+}
+
+.button{
+    background: #EE4035 !important;
+    color: white !important;
+    border-radius: 9999px !important;
+    width: 100% !important;
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+}
+
+.button:hover{
+    background: #EE4035 !important;
+    color: black !important;
+}

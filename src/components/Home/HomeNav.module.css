@@ -1,0 +1,28 @@
+.appBar{
+    background-color: white !important;
+    color: black !important;
+    box-shadow: none !important;
+}
+
+.icon{
+    color: #EE4035;
+}
+
+.heading{
+    color: #EE4035;
+    margin-top: .3rem;
+}
+
+.button{
+    margin-right: 1rem !important;
+    padding: 1rem !important;
+}
+
+.button2{
+    margin-right: 1rem !important;
+    width: 100%;
+    padding: .5rem !important;
+    border-radius: 9999px !important;
+    border: 1px solid #EE4035 !important;
+    color: #EE4035;
+}
