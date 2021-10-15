@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect } from 'react';
-import { Link as RouterLink }  from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { Link as RouterLink, useHistory }  from 'react-router-dom';
 import axios from 'axios';
 
 import UserContext from '../../context/user-context.js';
@@ -14,22 +14,32 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+
 const initialState = {
     email: '',
     password: '',
 }
 
 const LoginForm = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(initialState);
     const { userAuth,setUserAuth } = useContext(UserContext);
+    const history = useHistory();
+
     const loginUser = () => {
         const credentials = {email: formData.email, password: formData.password }
+        setIsLoading(true)
         axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/sessions', credentials)
         .then( (res) => { 
             setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token)
             console.log(userAuth)
+            setIsLoading(false)
+            history.push('/Profile')
         })
-        .catch( (err) => console.log(err))
+        .catch( (err) => {
+            console.log(err)
+            setIsLoading(false) })
     }
 
     return (
@@ -64,7 +74,7 @@ const LoginForm = () => {
                 onClick={loginUser}
                 className={classes.button}
             >
-                Login
+                {!isLoading ? 'Login' : <LoadingSpinner/>}
             </Button>
             <Divider className={classes.divider}/>
             <RouterLink to='/Signup' className={classes.routerLink}>

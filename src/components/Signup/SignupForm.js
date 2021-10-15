@@ -1,13 +1,23 @@
+//dependendencies
 import { useState } from 'react';
-import { Link as RouterLink }  from 'react-router-dom';
+import { Link as RouterLink, useHistory }  from 'react-router-dom';
+import axios from 'axios';
 
+//context 
+import UserContext from '../../context/user-context.js';
+
+//css
 import classes from './SignupForm.module.css';
 import logo from '../../assets/avatar_logo2.jpeg'
 
+//material
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+
+//components
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const initialState = {
     email: '',
@@ -18,7 +28,28 @@ const initialState = {
 
 const SignupForm = () => {
 
+    const history = useHistory()
     const [formData, setFormData] = useState(initialState)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const createUser = () => {
+        const credentials = {"[user]email": `${formData.email}`, 
+                            "[user]username": `${formData.username}`, 
+                            "[user]password": `${formData.password}`, 
+                            "[user]password_confirmation": `${formData.password}` }
+        setIsLoading(true)
+        axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/users', {}, credentials)
+        .then( (res) => { 
+            //setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token)
+            console.log(credentials)
+            setIsLoading(false)
+            history.push('/Profile')
+        })
+        .catch( (err) => {
+            console.log(credentials)
+            setIsLoading(false) })
+    }
+
     return (
         <div className={classes.main}>
             <RouterLink to='/'>
@@ -64,8 +95,9 @@ const SignupForm = () => {
             <Button 
                 variant="contained" 
                 className={classes.button2}
+                onClick={createUser}
             >
-                Sign Up
+                {!isLoading ? 'Sign Up' : <LoadingSpinner />}
             </Button>
         </div>
     )
