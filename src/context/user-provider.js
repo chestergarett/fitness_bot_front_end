@@ -4,16 +4,6 @@ import UserContext from './user-context.js';
 const UserProvider = (props) => {
     const {userAuth} = useContext(UserContext);
 
-    const [displayModal, setDisplayModal] = useState(false);
-
-    const closeModals = () => {
-        setDisplayModal(false)
-    }
-
-    const openModals = () => {
-        setDisplayModal(true)
-    }
-
     const setUserAuth = (email, auth_token) => {
         userAuth.email = email;
         userAuth.auth_token = auth_token;
@@ -22,9 +12,7 @@ const UserProvider = (props) => {
     return (
         <UserContext.Provider
             value={{userAuth, 
-                setUserAuth,
-                closeModals,
-                openModals}}
+                setUserAuth}}
         >
             {props.children}
         </UserContext.Provider>
