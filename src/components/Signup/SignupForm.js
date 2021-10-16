@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link as RouterLink, useHistory }  from 'react-router-dom';
 import axios from 'axios';
+import qs from 'qs';
 
 //context 
 import UserContext from '../../context/user-context.js';
@@ -38,7 +39,7 @@ const SignupForm = () => {
                             "[user]password": `${formData.password}`, 
                             "[user]password_confirmation": `${formData.password}` }
         setIsLoading(true)
-        axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/users', {}, credentials)
+        axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/users', qs.stringify(credentials))
         .then( (res) => { 
             //setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token)
             console.log(credentials)
