@@ -1,16 +1,33 @@
+//css
 import classes from './HomeNav.module.css';
+//dependencies
 import { Link as BrowserLink } from 'react-router-dom';
-
+import { useState } from 'react';
+//material
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+//icons
 import { FaRobot } from 'react-icons/fa';
+//components
+import Subscriptions from '../Subscriptions/Subscriptions';
 
 const HomeNav = () => {
+    const [displayModal, setDisplayModal] = useState(false)
+    
+    const openModalHandler = () => {
+      setDisplayModal(true)
+    }
+    
+    const closeModalHandler = () => {
+      setDisplayModal(false)
+    }
+
     return(
+        <>
         <Box sx={{ flexGrow: 1 }} className={classes.box}>
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar> 
@@ -26,9 +43,7 @@ const HomeNav = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={classes.heading}>
                         fitness bot
                     </Typography>
-                    <BrowserLink to='/Login'>
-                        <Button color="inherit" className={classes.button}>Subscribe</Button>
-                    </BrowserLink>
+                    <Button color="inherit" className={classes.button} onClick={openModalHandler}>Subscribe</Button>
                     <BrowserLink to='/Login'>
                         <Button color="inherit" className={classes.button}>Login</Button>
                     </BrowserLink>
@@ -38,6 +53,8 @@ const HomeNav = () => {
                 </Toolbar>
             </AppBar>
         </Box>
+        {displayModal ? <Subscriptions onClose={closeModalHandler} /> : ''}
+        </>
     )
 }
 
