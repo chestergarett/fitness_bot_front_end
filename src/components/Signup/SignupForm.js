@@ -45,7 +45,7 @@ const SignupForm = () => {
             //setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token)
             console.log(credentials)
             setIsLoading(false)
-            history.push('/Profile')
+            history.push('/Survey')
         })
         .catch( (err) => {
             console.log(credentials)

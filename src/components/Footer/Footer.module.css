@@ -1,0 +1,16 @@
+.footer{
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 1rem;
+    position: static !important;
+    background: transparent !important;
+    color: gray !important;
+    justify-content: center !important;
+}
+
+.container{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}

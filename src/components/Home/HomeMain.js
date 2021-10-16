@@ -1,8 +1,9 @@
-import { Link as BrowserLink } from 'react-router-dom';
+
 import classes from './HomeMain.module.css';
 import HomeNav from './HomeNav';
 import HomeBody from './HomeBody';
 import HomeFeatures from './HomeFeatures';
+import Footer from '../Footer/Footer';
 
 
 const HomeMain = () => {
@@ -11,6 +12,7 @@ const HomeMain = () => {
             <HomeNav />
             <HomeBody />
             <HomeFeatures />
+            <Footer/>
         </section>            
     )
 }

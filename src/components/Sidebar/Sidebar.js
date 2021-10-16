@@ -1,5 +1,6 @@
 //dependencies
 import { useState, useContext } from 'react';
+import { Link as BrowserLink } from 'react-router-dom';
 //css
 import classes from './Sidebar.module.css';
 //context
@@ -22,14 +23,14 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
 const options = [
-    {text: 'Home', icon: <HomeIcon className={classes.icons} />},
-    {text: 'Profile', icon: <AssignmentIndIcon className={classes.icons} />},
-    {text: 'Diet Plan', icon: <FastfoodIcon className={classes.icons} />},
-    {text: 'Workout Plan', icon: <FitnessCenterIcon className={classes.icons} />},
-    {text: 'Notifs', icon: <NotificationsIcon className={classes.icons} />},
-    {text: 'Subscriptions', icon: <SubscriptionsIcon className={classes.icons} />},
-    {text: 'Inbox', icon: <MoveToInboxIcon className={classes.icons} />},
-    {text: 'Support', icon: <HelpIcon className={classes.icons}/>},
+    {text: 'Home', icon: <HomeIcon className={classes.icons} />, link: '/Home'},
+    {text: 'Profile', icon: <AssignmentIndIcon className={classes.icons} />, link: '/Profile'},
+    {text: 'Diet Plan', icon: <FastfoodIcon className={classes.icons} />, link: '/DietPlan'},
+    {text: 'Workout Plan', icon: <FitnessCenterIcon className={classes.icons} />, link: '/WorkoutPlan'},
+    {text: 'Notifs', icon: <NotificationsIcon className={classes.icons} />, link: '/Notif'},
+    {text: 'Subscriptions', icon: <SubscriptionsIcon className={classes.icons} />, link: '/Subscriptions'},
+    {text: 'Inbox', icon: <MoveToInboxIcon className={classes.icons} />, link: '/Inbox'},
+    {text: 'Support', icon: <HelpIcon className={classes.icons}/>, link: '/Support'},
 ]
 const Sidebar = () => {
     // const { openModals, closeModals,  displayModal} = useContext(UserContext);
@@ -47,12 +48,21 @@ const Sidebar = () => {
       <>
         <List>
           {options.map((option) => (
-            <ListItem button key={option.text} onClick={openModalHandler}>
-              <ListItemIcon>
-                {option.icon}
-              </ListItemIcon>
-              <ListItemText primary={option.text} />
-            </ListItem>
+            option.text==='Subscriptions' ?
+              <ListItem button key={option.text} onClick={openModalHandler}>
+                <ListItemIcon>
+                  {option.icon}
+                </ListItemIcon>
+                <ListItemText primary={option.text} />
+              </ListItem> :
+              <BrowserLink to={option.link}>
+                <ListItem button key={option.text}>
+                  <ListItemIcon>
+                    {option.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={option.text} />
+                </ListItem>
+            </BrowserLink>
           ))}
         </List>
         {displayModal ? <Subscriptions onClose={closeModalHandler} /> : ''}

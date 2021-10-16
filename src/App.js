@@ -6,6 +6,7 @@ import LoginMain from './components/Login/LoginMain';
 import SignupMain from './components/Signup/SignupMain';
 import HomeMain from './components/Home/HomeMain';
 import Profile from './components/Profile/Profile';
+import Survey from './components/Survey/Survey';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/Login' component={LoginMain}/>
           <Route path='/Signup' component={SignupMain}/>
           <Route path='/Profile' component={Profile}/>
+          <Route path='/Survey' component={Survey}/>
         </Switch>
       </Router>
     </UserProvider>

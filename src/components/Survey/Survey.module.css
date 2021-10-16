@@ -1,0 +1,34 @@
+.section{
+    display: flex;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+.button{
+    background: #EE4035 !important;
+}
+
+.heading{
+    margin-bottom: 1rem;
+}
+
+.picture{
+    height: 40rem;
+    width: 50rem;
+    margin-left: -20rem;
+    /* object-fit: contain !important; */
+}
+
+.logo{
+    width: 10rem;
+    margin-bottom: 2rem;
+}
