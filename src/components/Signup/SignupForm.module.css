@@ -3,7 +3,7 @@
     width: 476px;
     height: 639px;
     left: 80px;
-    top: 120px;
+    top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,3 +69,12 @@
 .subLabel span{
  color: #4267B2;   
 }
+
+.errors{
+    padding: .5rem;
+    border: 1px solid #800000;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    color: #800000;
+}
+

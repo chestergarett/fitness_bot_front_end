@@ -31,6 +31,7 @@ const SignupForm = () => {
 
     const history = useHistory()
     const [formData, setFormData] = useState(initialState)
+    const [errorMessage, setErrorMessage] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
     const createUser = () => {
@@ -48,7 +49,8 @@ const SignupForm = () => {
         })
         .catch( (err) => {
             console.log(credentials)
-            setIsLoading(false) })
+            setIsLoading(false) 
+            setErrorMessage(true)})
     }
 
     return (
@@ -60,6 +62,7 @@ const SignupForm = () => {
                 <Typography variant='h4' className={classes.headerMain}>Sign up </Typography>
                 <Typography variant='body2'>It's quick & easy. </Typography>
             </Paper>
+            {errorMessage ? <span className={classes.errors}>Invalid inputs. Please double check.</span> : ''}
             <TextField 
                 id="standard-basic" 
                 label="Email" 

@@ -25,6 +25,7 @@ const LoginForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(initialState);
     const { userAuth,setUserAuth } = useContext(UserContext);
+    const [errorMessage, setErrorMessage] = useState(false)
     const history = useHistory();
 
     const loginUser = () => {
@@ -39,7 +40,8 @@ const LoginForm = () => {
         })
         .catch( (err) => {
             console.log(err)
-            setIsLoading(false) })
+            setIsLoading(false)
+            setErrorMessage(true) })
     }
 
     return (
@@ -51,6 +53,7 @@ const LoginForm = () => {
                 <Typography variant='h4' className={classes.headerMain}>Sign in </Typography>
                 <Typography variant='body2'>Make yourself stronger than your excuses. </Typography>
             </Paper>
+            {errorMessage ? <span className={classes.errors}>Invalid Credentials. Please double check.</span> : ''}
             <TextField 
                 id="standard-basic" 
                 label="Email" 
