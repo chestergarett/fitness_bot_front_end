@@ -1,9 +1,7 @@
 //css
 import classes from './Subscriptions.module.css';
-
 //components
 import CenteredModal from '../Modals/CenteredModal';
-
 //material
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -16,7 +14,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import StarIcon from '@mui/icons-material/Star';
-
 //icons
 import { AiOutlineGift } from 'react-icons/ai'
 

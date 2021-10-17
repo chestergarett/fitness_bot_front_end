@@ -1,4 +1,6 @@
+//dependencies
 import { useContext, useState } from 'react';
+//context
 import UserContext from './user-context.js';
 
 const UserProvider = (props) => {

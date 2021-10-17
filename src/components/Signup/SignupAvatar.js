@@ -1,3 +1,4 @@
+//css
 import classes from './SignupAvatar.module.css'
 import picture from '../../assets/avatar_signup.svg';
 

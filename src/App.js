@@ -1,7 +1,11 @@
 
+//css
 import './App.css';
+//dependencies
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+//context
 import UserProvider from './context/user-provider.js';
+//components
 import LoginMain from './components/Login/LoginMain';
 import SignupMain from './components/Signup/SignupMain';
 import HomeMain from './components/Home/HomeMain';

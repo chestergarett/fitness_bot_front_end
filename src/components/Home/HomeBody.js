@@ -1,7 +1,9 @@
+//dependencies
 import { Link as BrowserLink } from 'react-router-dom';
+//css
 import classes from './HomeBody.module.css';
 import picture from '../../assets/cover_main.jpg';
-
+//material
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 

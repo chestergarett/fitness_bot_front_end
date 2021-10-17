@@ -1,5 +1,6 @@
-
+//css
 import classes from './HomeMain.module.css';
+//components
 import HomeNav from './HomeNav';
 import HomeBody from './HomeBody';
 import HomeFeatures from './HomeFeatures';

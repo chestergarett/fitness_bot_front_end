@@ -1,5 +1,7 @@
+//dependencies
 import {Fragment} from 'react';
 import ReactDOM from 'react-dom';
+//css
 import classes from './CenteredModal.module.css';
 
 const Backdrop = props => {

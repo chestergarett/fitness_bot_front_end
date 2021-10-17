@@ -3,8 +3,6 @@ import { useState, useContext } from 'react';
 import { Link as BrowserLink } from 'react-router-dom';
 //css
 import classes from './Sidebar.module.css';
-//context
-import UserContext from '../../context/user-context.js';
 //components
 import Subscriptions from '../Subscriptions/Subscriptions';
 //material

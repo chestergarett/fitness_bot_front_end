@@ -1,12 +1,10 @@
+//css
 import classes from './HomeFeatures.module.css';
-import sprinter from '../../assets/avatar_sprinter.svg';
-import lifter from '../../assets/avatar_signup.svg';
 import fitness from '../../assets/features_fitness.svg';
 import diet from '../../assets/features_diet.svg';
 import time from '../../assets/features_time.svg';
 import mentor from '../../assets/features_mentor.svg';
-
-
+//material
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';

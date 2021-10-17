@@ -1,7 +1,6 @@
+//css
 import classes from './LoginAvatar.module.css'
 import picture from '../../assets/avatar_sprinter.svg';
-
-
 
 const LoginAvatar = () => { 
 

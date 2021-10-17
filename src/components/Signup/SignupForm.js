@@ -3,20 +3,14 @@ import { useState } from 'react';
 import { Link as RouterLink, useHistory }  from 'react-router-dom';
 import axios from 'axios';
 import qs from 'qs';
-
-//context 
-import UserContext from '../../context/user-context.js';
-
 //css
 import classes from './SignupForm.module.css';
 import logo from '../../assets/avatar_logo2.jpeg'
-
 //material
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-
 //components
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 

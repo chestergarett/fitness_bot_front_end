@@ -1,19 +1,20 @@
+//dependecies
 import { useState, useContext } from 'react';
 import { Link as RouterLink, useHistory }  from 'react-router-dom';
 import axios from 'axios';
-
+//context
 import UserContext from '../../context/user-context.js';
-
+//css
 import classes from './LoginForm.module.css';
 import logo from '../../assets/avatar_logo2.jpeg'
-
+//material
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-
+//components
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const initialState = {
