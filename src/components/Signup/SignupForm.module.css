@@ -78,3 +78,10 @@
     color: #800000;
 }
 
+.errorMessages{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-bottom: .2rem;
+}
+

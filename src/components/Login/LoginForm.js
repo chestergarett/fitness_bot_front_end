@@ -25,7 +25,7 @@ const initialState = {
 const LoginForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(initialState);
-    const { userAuth,setUserAuth } = useContext(UserContext);
+    const { setUserAuth, setHeaders, userHeaders } = useContext(UserContext);
     const [errorMessage, setErrorMessage] = useState(false)
     const history = useHistory();
 
@@ -34,8 +34,9 @@ const LoginForm = () => {
         setIsLoading(true)
         axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/sessions', credentials)
         .then( (res) => { 
-            setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token)
-            console.log(userAuth)
+            setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token, res.data.data.user.id)
+            setHeaders( res.data.data.user.email, res.data.data.user.authentication_token )
+            window.localStorage.setItem('userHeaders', JSON.stringify(userHeaders))
             setIsLoading(false)
             history.push('/Profile')
         })
@@ -56,14 +57,14 @@ const LoginForm = () => {
             </Paper>
             {errorMessage ? <span className={classes.errors}>Invalid Credentials. Please double check.</span> : ''}
             <TextField 
-                id="standard-basic" 
+                id="login-email-form" 
                 label="Email" 
                 variant="outlined" 
                 className={classes.input}
                 onChange={ (e) => setFormData({...formData, email: e.target.value})}
             />
             <TextField 
-                id="standard-basic" 
+                id="login-password-form" 
                 label="Password" 
                 type="password" 
                 variant="outlined" 

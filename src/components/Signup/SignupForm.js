@@ -1,11 +1,13 @@
 //dependendencies
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link as RouterLink, useHistory }  from 'react-router-dom';
 import axios from 'axios';
 import qs from 'qs';
 //css
 import classes from './SignupForm.module.css';
 import logo from '../../assets/avatar_logo2.jpeg'
+//context
+import UserContext from '../../context/user-context.js';
 //material
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -25,7 +27,9 @@ const SignupForm = () => {
 
     const history = useHistory()
     const [formData, setFormData] = useState(initialState)
-    const [errorMessage, setErrorMessage] = useState(false)
+    const { userAuth,setUserAuth,setHeaders } = useContext(UserContext);
+    const [error, setError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     const createUser = () => {
@@ -36,15 +40,16 @@ const SignupForm = () => {
         setIsLoading(true)
         axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/users', qs.stringify(credentials))
         .then( (res) => { 
-            //setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token)
+            setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token, res.data.data.user.id)
+            setHeaders( res.data.data.user.email, res.data.data.user.authentication_token )
             console.log(credentials)
             setIsLoading(false)
             history.push('/Survey')
         })
         .catch( (err) => {
-            console.log(credentials)
+            setErrorMessage(err.response.data.errors)
             setIsLoading(false) 
-            setErrorMessage(true)})
+            setError(true)})
     }
 
     return (
@@ -56,7 +61,9 @@ const SignupForm = () => {
                 <Typography variant='h4' className={classes.headerMain}>Sign up </Typography>
                 <Typography variant='body2'>It's quick & easy. </Typography>
             </Paper>
-            {errorMessage ? <span className={classes.errors}>Invalid inputs. Please double check.</span> : ''}
+            {error ? <span className={classes.errors}>
+                {errorMessage.map(e => { return ( <span key={e} className={classes.errorMessages}>{e}</span>) } ) }
+            </span> : ''}
             <TextField 
                 id="standard-basic" 
                 label="Email" 

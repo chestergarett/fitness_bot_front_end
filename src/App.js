@@ -11,6 +11,7 @@ import SignupMain from './components/Signup/SignupMain';
 import HomeMain from './components/Home/HomeMain';
 import Profile from './components/Profile/Profile';
 import Survey from './components/Survey/Survey';
+import WorkoutPlan from './components/WorkoutPlan/WorkoutPlan';
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
           <Route path='/' exact component={HomeMain}/>
           <Route path='/Login' component={LoginMain}/>
           <Route path='/Signup' component={SignupMain}/>
-          <Route path='/Profile' component={Profile}/>
           <Route path='/Survey' component={Survey}/>
+          <Route path='/Profile' component={Profile}/>
+          <Route path='/WorkoutPlan' component={WorkoutPlan}/>
         </Switch>
       </Router>
     </UserProvider>

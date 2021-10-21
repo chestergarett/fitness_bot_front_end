@@ -1,0 +1,24 @@
+.pagination{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: center;
+}
+
+.pageItem{
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.pageItem:hover{
+    cursor: pointer;
+}
+
+.pageItem::selection{
+    color: red;
+}

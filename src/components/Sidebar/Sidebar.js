@@ -1,6 +1,7 @@
 //dependencies
 import { useState, useContext } from 'react';
 import { Link as BrowserLink } from 'react-router-dom';
+import { v4 } from 'uuid';
 //css
 import classes from './Sidebar.module.css';
 //components
@@ -21,14 +22,14 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
 const options = [
-    {text: 'Home', icon: <HomeIcon className={classes.icons} />, link: '/Home'},
-    {text: 'Profile', icon: <AssignmentIndIcon className={classes.icons} />, link: '/Profile'},
-    {text: 'Diet Plan', icon: <FastfoodIcon className={classes.icons} />, link: '/DietPlan'},
-    {text: 'Workout Plan', icon: <FitnessCenterIcon className={classes.icons} />, link: '/WorkoutPlan'},
-    {text: 'Notifs', icon: <NotificationsIcon className={classes.icons} />, link: '/Notif'},
-    {text: 'Subscriptions', icon: <SubscriptionsIcon className={classes.icons} />, link: '/Subscriptions'},
-    {text: 'Inbox', icon: <MoveToInboxIcon className={classes.icons} />, link: '/Inbox'},
-    {text: 'Support', icon: <HelpIcon className={classes.icons}/>, link: '/Support'},
+    {key: v4(), text: 'Home', icon: <HomeIcon className={classes.icons} />, link: '/Home'},
+    {key: v4(), text: 'Profile', icon: <AssignmentIndIcon className={classes.icons} />, link: '/Profile'},
+    {key: v4(), text: 'Diet Plan', icon: <FastfoodIcon className={classes.icons} />, link: '/DietPlan'},
+    {key: v4(), text: 'Workout Plan', icon: <FitnessCenterIcon className={classes.icons} />, link: '/WorkoutPlan'},
+    {key: v4(), text: 'Notifs', icon: <NotificationsIcon className={classes.icons} />, link: '/Notif'},
+    {key: v4(), text: 'Subscriptions', icon: <SubscriptionsIcon className={classes.icons} />, link: '/Subscriptions'},
+    {key: v4(), text: 'Inbox', icon: <MoveToInboxIcon className={classes.icons} />, link: '/Inbox'},
+    {key: v4(), text: 'Support', icon: <HelpIcon className={classes.icons}/>, link: '/Support'},
 ]
 const Sidebar = () => {
     // const { openModals, closeModals,  displayModal} = useContext(UserContext);
@@ -47,7 +48,7 @@ const Sidebar = () => {
         <List>
           {options.map((option) => (
             option.text==='Subscriptions' ?
-              <ListItem button key={option.text} onClick={openModalHandler}>
+              <ListItem button key={option.key} onClick={openModalHandler}>
                 <ListItemIcon>
                   {option.icon}
                 </ListItemIcon>

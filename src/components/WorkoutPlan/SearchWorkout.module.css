@@ -1,0 +1,63 @@
+
+.searchbar{
+    display: flex;
+    align-items: center;
+}
+
+.button{
+    margin-left: 1rem !important;
+    border-radius: 999px !important;
+    background: #EE4035 !important;
+}
+
+.resultsBox{
+    display: flex;
+    flex-direction: row !important;
+    background: whitesmoke !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: .5rem !important;
+    margin-top: .5rem !important;
+}
+
+.card{
+    width: 15rem !important;
+    height: 12rem !important;
+    margin-right: .5rem !important;
+}
+
+.header{
+    color: #EE4035 !important;
+    font-weight: bold !important;
+    font-size: 10px !important;
+    padding: .5rem !important;
+    text-align: center !important;
+}
+
+.image{
+    object-fit: contain !important;
+}
+
+.cardContent{
+    display: flex;
+    width: 100%;
+    font-size: 10px;
+}
+
+.key{
+    color: gray;
+    width: 50%;
+}
+
+.value{
+    font-weight: bold;
+}
+
+.cardActions{
+    display: flex;
+    justify-content: center;
+}
+
+.icon{
+    font-size: 40px !important;
+}
