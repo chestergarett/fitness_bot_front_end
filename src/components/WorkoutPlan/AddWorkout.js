@@ -19,7 +19,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import DateTimePicker from '@mui/lab/DateTimePicker';
 import Button from '@mui/material/Button';
 
 const initialState = {
@@ -104,7 +104,7 @@ const AddWorkout = (props) => {
                 <FormControl className={classes.rightForm}>
                     <FormGroup className={classes.dateGroup}>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <DatePicker
+                            <DateTimePicker
                                 label="Start Date"
                                 value={startValue}
                                 onChange={(newValue) => {
@@ -117,7 +117,7 @@ const AddWorkout = (props) => {
                     </FormGroup>
                     <FormGroup className={classes.dateGroup}>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <DatePicker
+                            <DateTimePicker
                                 label="End Date"
                                 value={endValue}
                                 onChange={(newValue) => {
@@ -136,8 +136,8 @@ const AddWorkout = (props) => {
             </span> : ''}
             {success ? <span className={classes.success}>
                 {successMessage}
-            </span> : ''}
-            <Button variant="contained" color="success" className={classes.addButton} onClick={submitHandler}>{isLoading ? <LoadingSpinner/> : 'Add Workout' }</Button>
+            </span> : ''}   
+            <Button variant="contained" color="success" className={classes.addButton} onClick={submitHandler}>test</Button>
         </CenteredModalLight>
     )
 }
