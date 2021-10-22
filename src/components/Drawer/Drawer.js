@@ -3,6 +3,7 @@ import { useState } from 'react';
 //components
 import classes from './Drawer.module.css';
 import Sidebar from '../Sidebar/Sidebar';
+import Logout from '../Logout/Logout';
 //material
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -128,6 +129,7 @@ const MiniDrawer = (props) => {
         <Divider />
             <Sidebar />
         <Divider />
+            <Logout />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             {props.children}

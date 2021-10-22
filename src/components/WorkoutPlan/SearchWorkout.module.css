@@ -13,6 +13,7 @@
 .resultsBox{
     display: flex;
     flex-direction: row !important;
+    width: 90vw;
     background: whitesmoke !important;
     justify-content: center !important;
     align-items: center !important;
