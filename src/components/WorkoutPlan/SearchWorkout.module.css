@@ -24,6 +24,7 @@
     width: 15rem !important;
     height: 12rem !important;
     margin-right: .5rem !important;
+    cursor: pointer !important;
 }
 
 .header{

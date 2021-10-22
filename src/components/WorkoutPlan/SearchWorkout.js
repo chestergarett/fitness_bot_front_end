@@ -1,8 +1,10 @@
 //dependencies
 import { useState, useContext } from 'react';
 import axios from 'axios';
+import { v4 } from 'uuid';
 //components
 import Pagination from '../Pagination/Pagination';
+import AddWorkout from './AddWorkout';
 //context
 import UserContext from '../../context/user-context.js';
 //css
@@ -17,20 +19,30 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import CardActions from '@mui/material/CardActions';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-
 
 const initialState = {
     name: '',
 }
 
 const SearchResults = ({results}) => {
+    const [openForm, setOpenForm] = useState(false)
+
+    const openFormHandler = () => {
+        setOpenForm(true)
+    }
+
+    const closeFormHandler = () => {
+        setOpenForm(false)
+    }
+
     return(
         <Box className={classes.resultsBox}>
             {results.map(r => { 
+                  
                 return(
-                <Card key={r.id} className={classes.card}>
+                <>
+                {openForm ? <AddWorkout onClose={closeFormHandler} key={v4()} result={r}/> : '' }
+                <Card key={r.id} className={classes.card} onClick={openFormHandler}>
                     <Typography className={classes.header} component="div">
                         {r.name}
                     </Typography>
@@ -55,12 +67,9 @@ const SearchResults = ({results}) => {
                         <span className={classes.value}>{r.bodyPart} </span>
                     </div>
                     </CardContent>
-                    {/* <CardActions className={classes.cardActions}>
-                        <IconButton color="success">
-                            <AddCircleIcon className={classes.icon}/>
-                        </IconButton>
-                    </CardActions> */}
-                </Card>)
+                </Card>
+                </>
+                )
             })}
         </Box>
     )
@@ -83,7 +92,6 @@ const SearchWorkout = () => {
             params: formData 
         })
         .then((res)=> { 
-            console.log(res.data.data) 
             setResults(res.data.data)
         })
         .catch((error) => { 
