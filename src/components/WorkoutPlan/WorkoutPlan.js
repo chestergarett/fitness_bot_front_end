@@ -24,13 +24,13 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const WorkoutPlan = () => {
     
     const { userWorkouts } = useContext(UserContext);
-
+    
     return(
         <Drawer>
             <DrawerHeader />
             <SearchWorkout />
             <Divider className={classes.divider}/>
-            <Tracker userWorkouts={userWorkouts}/>
+            <Tracker />
         </Drawer>
     )       
 }

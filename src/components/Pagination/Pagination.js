@@ -13,7 +13,6 @@ const Pagination = ({ resultsPerPage, totalResults, paginate }) => {
   return (
     <nav>
       <ul className={classes.pagination}>
-        <ChevronLeftIcon/>
         {pageNumbers.map(number => (
           <li key={number} className={classes.pageItem}>
             <a onClick={() => paginate(number)} className='page-link'>
@@ -21,7 +20,6 @@ const Pagination = ({ resultsPerPage, totalResults, paginate }) => {
             </a>
           </li>
         ))}
-        <ChevronRightIcon/>
       </ul>
     </nav>
   );
