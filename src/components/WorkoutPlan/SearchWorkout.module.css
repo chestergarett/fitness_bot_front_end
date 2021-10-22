@@ -62,3 +62,8 @@
 .icon{
     font-size: 40px !important;
 }
+
+.nosearch{
+    margin-top: 1rem;
+    color: gray;
+}

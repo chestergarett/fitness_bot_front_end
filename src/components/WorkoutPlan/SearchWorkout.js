@@ -5,6 +5,7 @@ import { v4 } from 'uuid';
 //components
 import Pagination from '../Pagination/Pagination';
 import AddWorkout from './AddWorkout';
+import LoadingSpinnerDark from '../LoadingSpinner/LoadingSpinnerDark';
 //context
 import UserContext from '../../context/user-context.js';
 //css
@@ -80,6 +81,8 @@ const SearchWorkout = () => {
     const {userHeaders} = useContext(UserContext)
     const [formData, setFormData] = useState(initialState)
     const [results, setResults] = useState([])
+    const [isLoading,setIsLoading] = useState(false)
+    const [error,setError] = useState(false)
 
     //pagination
     const [currentPage, setCurrentPage] = useState(1);
@@ -87,15 +90,18 @@ const SearchWorkout = () => {
 
     //fetch data
     const searchHandler = () => {
+        setIsLoading(true)
         axios.get('https://fitness-bot-avion.herokuapp.com/api/v1/workouts/get_by_name', 
         { headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')), 
             params: formData 
         })
         .then((res)=> { 
             setResults(res.data.data)
+            setIsLoading(false)
         })
         .catch((error) => { 
-            console.log(error.response) 
+            setIsLoading(false) 
+            setError(true)
         })
     }
 
@@ -118,7 +124,7 @@ const SearchWorkout = () => {
                 />
                 <Button variant="contained" className={classes.button} onClick={searchHandler}>Search</Button>
             </Box>
-            <SearchResults results={currentResults}/>
+            {isLoading ? <LoadingSpinnerDark/> : (results.length==0 ? <div className={classes.nosearch}>No search results.</div> : <SearchResults results={currentResults}/>)}
             <Pagination
                 resultsPerPage={resultsPerPage}
                 totalResults={results.length}
