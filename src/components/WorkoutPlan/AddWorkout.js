@@ -137,7 +137,7 @@ const AddWorkout = (props) => {
             {success ? <span className={classes.success}>
                 {successMessage}
             </span> : ''}   
-            <Button variant="contained" color="success" className={classes.addButton} onClick={submitHandler}>test</Button>
+            <Button variant="contained" color="success" className={classes.addButton} onClick={submitHandler}>{isLoading ? <LoadingSpinner/> : 'Add Workout'}</Button>
         </CenteredModalLight>
     )
 }

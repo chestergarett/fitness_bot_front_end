@@ -1,3 +1,8 @@
+
+//dependencies
+import { useState, useContext } from 'react';
+//context
+import UserContext from '../../context/user-context.js';
 //css
 import classes from './Steps.module.css'
 //material
