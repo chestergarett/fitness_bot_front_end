@@ -5,7 +5,7 @@ import UserContext from '../../context/user-context.js';
 //components
 import Drawer from '../Drawer/Drawer';
 import SearchWorkout from './SearchWorkout';
-import Tracker from '../Tracker/Tracker';
+import WorkoutTracker from '../Tracker/WorkoutTracker';
 //css
 import classes from './WorkoutPlan.module.css';
 //material
@@ -30,7 +30,7 @@ const WorkoutPlan = () => {
             <DrawerHeader />
             <SearchWorkout />
             <Divider className={classes.divider}/>
-            <Tracker />
+            <WorkoutTracker />
         </Drawer>
     )       
 }

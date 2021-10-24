@@ -1,0 +1,98 @@
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divBeforeForm{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    object-fit: contain !important;
+}
+
+.header{
+    color: #EE4035 !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    padding: .5rem !important;
+    text-align: center !important;
+}
+
+.labelGroup{
+    display: flex;
+    width: 100%;
+    font-size: 10px;
+}
+
+.keyLabel{
+    color: gray;
+    width: 50%;
+}
+
+.valueLabel{
+    font-weight: bold;
+}
+
+.leftForm{
+    margin-right: 5rem !important;
+}
+
+.rightTextFields{
+    margin-top: .5rem !important;
+    margin-bottom: .5rem !important;
+}
+
+.dateGroup{
+    margin-bottom: 1rem !important;
+}
+
+.selectGroup{
+    margin-bottom: 1rem !important;
+}
+
+.addButton{
+    width: 80% !important;
+    justify-self: center;
+}
+
+.errors{
+    padding: .5rem;
+    border: 1px solid #800000;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    color: #800000;
+}
+
+.errorMessages{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-bottom: .2rem;
+}
+
+.buttonGroup{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    width: 50%;
+}
+
+.buttonSingle{
+    margin-right: 1rem !important;
+}
+
+.snackbar{
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    background: #81c784;
+    padding: 1rem;
+    border-radius: 10px;
+    color: black;
+}

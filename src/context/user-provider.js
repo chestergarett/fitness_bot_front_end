@@ -1,14 +1,28 @@
 //dependencies
 import { useContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import moment from 'moment';
 //context
 import UserContext from './user-context.js';
 
+const initialClientProfile = {
+    first_name: '',
+    last_name: '',
+    height: '',
+    current_weight: '',
+    goal_weight: '',
+    sex: '',
+    age: '',
+    workout_frequency: '',
+    body_type: '',
+    target_date: '',
+}
+
 const UserProvider = (props) => {
-    const {userAuth, userHeaders} = useContext(UserContext);
+    const { userAuth, userHeaders } = useContext(UserContext);
+
     const [userWorkouts, setUserWorkouts] = useState([])
-    let events = []
+
+    const [clientProfile, setClientProfile] = useState(initialClientProfile)
+
     const setUserAuth = (email, auth_token,id) => {
         userAuth.email = email;
         userAuth.auth_token = auth_token;
@@ -27,7 +41,9 @@ const UserProvider = (props) => {
                 userHeaders,
                 setHeaders,
                 userWorkouts, 
-                setUserWorkouts}}
+                setUserWorkouts,
+                clientProfile,
+                setClientProfile}}
         >
             {props.children}
         </UserContext.Provider>

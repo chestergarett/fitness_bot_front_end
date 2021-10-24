@@ -16,14 +16,17 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 
 const Step1 = () => {
+
+    const { clientProfile,setClientProfile } = useContext(UserContext);
+
     return(
         <div className={classes.step1}>
             {/* Sex */}
             <FormControl>
                 <FormLabel component="legend">Sex</FormLabel>
-                <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                    <FormControlLabel value="female" control={<Radio />} label="Male" />
-                    <FormControlLabel value="male" control={<Radio />} label="Female" />
+                <RadioGroup row aria-label="gender" name="row-radio-buttons-group" onChange={ (e)=> setClientProfile({...clientProfile, sex: e.target.value})}>
+                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                    <FormControlLabel value="female" control={<Radio />} label="Female" />
                 </RadioGroup>
             </FormControl>
             {/* Height */}
@@ -35,6 +38,7 @@ const Step1 = () => {
                     inputProps={{
                     'aria-label': 'height',
                     }}
+                    onChange={ (e)=> setClientProfile({...clientProfile, height: e.target.value})}
                 />
                 <FormHelperText id="outlined-height-helper-text">Height</FormHelperText>
             </FormControl>
@@ -47,6 +51,7 @@ const Step1 = () => {
                     inputProps={{
                     'aria-label': 'weight',
                     }}
+                    onChange={ (e)=> setClientProfile({...clientProfile, current_weight: e.target.value})}
                 />
                 <FormHelperText id="outlined-weight-helper-text">Weight</FormHelperText>
             </FormControl>
@@ -59,6 +64,7 @@ const Step1 = () => {
                     inputProps={{
                     'aria-label': 'age',
                     }}
+                    onChange={ (e)=> setClientProfile({...clientProfile, age: e.target.value})}
                 />
                 <FormHelperText id="outlined-weight-helper-text">Age</FormHelperText>
             </FormControl>

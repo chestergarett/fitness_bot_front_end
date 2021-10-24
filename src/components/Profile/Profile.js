@@ -1,6 +1,6 @@
 //components
 import KPIMain from '../KPIs/KPIMain';
-import Tracker from '../Tracker/Tracker';
+import WorkoutTracker from '../Tracker/WorkoutTracker';
 import Drawer from '../Drawer/Drawer';
 //material
 import { styled, useTheme } from '@mui/material/styles';
@@ -20,7 +20,7 @@ const Profile = () => {
             <DrawerHeader />
             <KPIMain />
             <DrawerHeader />
-            <Tracker />
+            <WorkoutTracker />
         </Drawer>
     )       
 }
