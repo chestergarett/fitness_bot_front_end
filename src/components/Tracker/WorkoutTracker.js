@@ -42,11 +42,35 @@ const WorkoutTracker = (props) => {
 const openModalHandler = (event) => {
   setOpen(true)
   setEvent(event)
-  console.log(event)
 }
 
 const closeModalHandler = () => {
   setOpen(false)
+}
+
+const styleEvents = (event) => {
+  let backgroundColor ='#29b6f6'
+  if (event.status=='NOT STARTED'){
+    backgroundColor = '#29b6f6'
+  }else if(event.status=='ONGOING'){
+    backgroundColor = '#ffb74d'
+  }else if(event.status=='COMPLETED'){
+    backgroundColor = '#66bb6a'
+  }else{
+    backgroundColor = '#29b6f6'
+  }
+  
+  let style = {
+      backgroundColor: backgroundColor,
+      borderRadius: '0px',
+      opacity: 0.8,
+      color: 'black',
+      border: '0px',
+      display: 'block'
+  };
+  return{
+    style: style
+  };
 }
 
  return(
@@ -60,6 +84,7 @@ const closeModalHandler = () => {
       defaultDate={new Date()}
       style={{ style, height: 500 }}
       onSelectEvent={event => openModalHandler(event)}
+      eventPropGetter={event => styleEvents(event)}
     />
     {open ? <EditWorkout onClose={closeModalHandler} event={event}/> : ''}
   </div>

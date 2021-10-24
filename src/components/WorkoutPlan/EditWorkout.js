@@ -93,6 +93,8 @@ const EditWorkout = (props) => {
             setSuccessDelete(false)
             setErrorDelete(true)})
     }
+
+    
     
     return (
         <>
