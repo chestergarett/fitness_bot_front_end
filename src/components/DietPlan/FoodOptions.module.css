@@ -1,4 +1,75 @@
+
 .main{
     margin-top: 1rem !important;
     padding: 1rem !important;
+    width: 90vw;
+    background: whitesmoke !important;
+}
+
+.mainHeader{
+    display: flex;
+    justify-content: center;
+    text-align: center !important;
+    margin-bottom: .5rem !important;
+    letter-spacing: 1px !important;
+    font-weight: bold !important;
+    align-items: center !important;
+}
+
+.mainHeaderIcons{
+    color: #EE4035 !important;
+}
+
+.section{
+    display: flex;
+    max-width: 90vw;
+    overflow-x: auto;
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    margin-top: .5rem !important;
+    min-height: 3rem !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}
+.card{
+    min-width: 15rem !important;
+    /* height: 35rem !important; */
+    margin-right: 1rem;
+    padding: .5rem;
+}
+
+.list{
+    height: 12rem !important;
+    overflow-y: scroll !important;
+    font-family: 'Pacifico', cursive !important;
+}
+
+.heading{
+    font-size: 15px !important;
+    color: #EE4035 !important;
+}
+.label{
+    font-size: 8px;
+    color: gray;
+}
+
+.subHeadingContainer{
+    margin-top: 1rem !important;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.subHeading{
+    color: #4267B2 !important;
+    font-size: 12px;
+}
+
+.modalOpen{
+    cursor: pointer;
 }

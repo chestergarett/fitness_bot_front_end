@@ -53,7 +53,7 @@ const DietPlan = () => {
                     <DietTracker className={classes.calendar}/>
                     <DietPlanSelected selected={userSelectedDietPlan} className={classes.card}/>
                 </div>
-                <FoodOptions/>
+                <FoodOptions dietPlan={userSelectedDietPlan.id}/>
             </div>
         </Drawer>
     )       

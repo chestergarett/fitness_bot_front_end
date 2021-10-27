@@ -1,0 +1,37 @@
+.box{
+    width: 25rem !important;
+}
+
+.header{
+    color: #EE4035 !important;
+    font-style: italic !important;
+    text-align: center !important;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    margin-top: .5rem !important;
+    border-radius: 999px !important;
+    background: #EE4035 !important;
+    width: 50% !important;
+}
+
+.selectContainer{
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.select{
+    width: 100% !important;
+}
