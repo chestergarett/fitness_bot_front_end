@@ -1,0 +1,17 @@
+.card{
+    padding: 1rem !important;
+    margin-left: 3rem !important;
+    width: 20%;
+}
+
+.dates{
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+}
+
+.dates_content{
+    display: flex;
+    flex-direction: column !important;
+    margin-left: 1rem !important;
+}

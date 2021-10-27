@@ -105,6 +105,9 @@ const EditWorkout = (props) => {
                     <Typography className={classes.header} component="div">
                             {props.event.title}
                     </Typography>
+                    <Typography className={classes.subheading} component="span">
+                            {props.event.type}
+                    </Typography>
                     <CardMedia
                         component="img"
                         alt={props.event.title}

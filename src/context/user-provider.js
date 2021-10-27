@@ -19,7 +19,11 @@ const initialClientProfile = {
 const UserProvider = (props) => {
     const { userAuth, userHeaders } = useContext(UserContext);
 
-    const [userWorkouts, setUserWorkouts] = useState([])
+    const [userWorkouts, setUserWorkouts] = useState([]);
+    const [userDietPlans, setUserDietPlans] = useState([]);
+    const [userSelectedDietPlan, setUserSelectedDietPlan] = useState({});
+    const [userFoodOptions, setFoodOptions] = useState([]);
+    const [userFoods, setFoods] = useState([]);
 
     const [clientProfile, setClientProfile] = useState(initialClientProfile)
 
@@ -43,7 +47,16 @@ const UserProvider = (props) => {
                 userWorkouts, 
                 setUserWorkouts,
                 clientProfile,
-                setClientProfile}}
+                setClientProfile,
+                userDietPlans,
+                setUserDietPlans,
+                userSelectedDietPlan,
+                setUserSelectedDietPlan,
+                userFoodOptions,
+                setFoodOptions,
+                userFoods,
+                setFoods
+            }}
         >
             {props.children}
         </UserContext.Provider>

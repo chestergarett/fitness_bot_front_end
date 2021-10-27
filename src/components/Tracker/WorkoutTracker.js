@@ -28,10 +28,22 @@ const WorkoutTracker = (props) => {
         (res.data.data).map(event => {
             const start = moment(event.start,'YYYY-MM-DD HH:mm').toDate();
             const end =  moment(event.end,'YYYY-MM-DD HH:mm').toDate();
-            setEvents(events => [...events, {start: start, end: end, title: event.title, id: event.id, reps:event.reps, target: event.target, status: event.status, equipment: event.equipment, gifUrl: event.gifUrl, bodyPart:  event.bodyPart, sets: event.sets, status: event.status }])
+            setEvents(events => [...events, 
+              {start: start, 
+                end: end, 
+                title: event.title, 
+                id: event.id, 
+                reps:event.reps, 
+                target: event.target, 
+                status: event.status, 
+                equipment: event.equipment, 
+                gifUrl: event.gifUrl, 
+                bodyPart:  event.bodyPart, 
+                sets: event.sets, 
+                type: event.type }
+              ])
         }) 
         setUserWorkouts(res.data.data)
-        console.log(events)
     })
     .catch((error) => { 
         console.log(error)

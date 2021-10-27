@@ -1,0 +1,8 @@
+.section{
+    display: flex;
+    flex-direction: column !important;
+}
+.main{
+    display: flex;
+    flex-direction: row !important;
+}
