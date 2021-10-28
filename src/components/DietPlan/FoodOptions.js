@@ -44,6 +44,7 @@ const FoodOptions = (props) => {
     const [successMessage, setSucessMessage] = useState(false);
     const [error, setError] = useState(false);
     const [recipes, setRecipes] = useState([])
+    const [recipe, setRecipe] = useState({});
     const [errorMessage, setErrorMessage] = useState(false);
     const [addFood, setAddFood] = useState(false)
     const [update, setUpdate] = useState(false);
@@ -116,11 +117,12 @@ const FoodOptions = (props) => {
                 recipes.map(r=> { 
                 return(
                     <>
+                    {addFood ? <AddFood onClose={closeAddFoodHandler} data={r.recipe}/> : ''}
                     <Card key={v4()} className={classes.card}>
                         <div onClick={openAddFoodHandler} className={classes.modalOpen}>
                             <CardMedia
                                 component="img"
-                                alt={r.name}
+                                alt={r.label}
                                 height="200"
                                 image={r.recipe.image}
                                 className={classes.image}
@@ -134,7 +136,7 @@ const FoodOptions = (props) => {
                             <List className={classes.list}>
                                 {r.recipe.ingredientLines.map(il => {
                                     return(
-                                        <ListItem key={v4}><Typography variant="caption" component="span">{il}</Typography></ListItem>
+                                        <ListItem key={v4()}><Typography variant="caption" component="span">{il}</Typography></ListItem>
                                     )
                                 })}
                             </List>                                
@@ -158,7 +160,6 @@ const FoodOptions = (props) => {
                             </CardContent>
                         </Collapse>
                     </Card>
-                    {addFood ? <AddFood onClose={closeAddFoodHandler} data={props.r}/> : ''}
                     </>
                 )
             })}
