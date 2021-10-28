@@ -1,7 +1,12 @@
 //dependencies
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import qs from 'qs';
+import axios from 'axios';
 //components
 import RightPopupModal from '../Modals/RightPopupModal';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+//context
+import UserContext from '../../context/user-context.js';
 //css
 import classes from './UpdateFoodOptions.module.css';
 //material
@@ -25,12 +30,25 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+const initialState = {
+    ingredients: '',
+    calories: '',
+    excluded: '',
+    mainIngredient: '',
+}
+
 const UpdateFoodOptions = (props) => {
-    const [mealType, setMealType] = useState('Breakfast');
-    const [dishType, setDishType] = useState('Biscuits and cookies');
+    const [mealType, setMealType] = useState('Dinner');
+    const [dishType, setDishType] = useState('Main course');
     const [dietType, setDietType] = useState('balanced');
     const [cuisineType, setCuisineType] = useState('American');
-    const [healthLabel, setHealthLabel] = useState('alcohol-free');
+    const [healthLabel, setHealthLabel] = useState('celery-free');
+    const [isLoading, setIsLoading] = useState(false)
+    const [formData, setFormData] = useState(initialState)
+    const [error, setError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const { userHeaders } = useContext(UserContext);
 
     const mealTypeHander = (event) => {
         setMealType(event.target.value);
@@ -50,6 +68,35 @@ const UpdateFoodOptions = (props) => {
 
     const healthLabelHandler = (event) => {
         setHealthLabel(event.target.value);
+    }
+
+    const submitHandler = () => {
+        const credentials = {
+            "food_option[meal_type]": mealType,
+            "food_option[dish_type]": dishType,
+            "food_option[diet_type]": dietType,
+            "food_option[health_label]": healthLabel,
+            "food_option[cuisine_type]": cuisineType,
+            "food_option[main_ingredient]": formData.mainIngredient,
+            "food_option[no_of_ingredients]": formData.ingredients,
+            "food_option[calories]": formData.calories,
+            "food_option[excluded]": formData.excluded,
+        }
+        setIsLoading(true)
+        axios.patch(`https://fitness-bot-avion.herokuapp.com/api/v1/food_options/${props.foodOptionId}`, qs.stringify(credentials), {
+                headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')),
+            })
+            .then( (res) => { 
+                console.log(res)
+                props.handleFoodOptions(res)
+                setIsLoading(false)
+                setError(false)
+            })
+            .catch( (error) => {
+                setIsLoading(false) 
+                setError(true)
+                setErrorMessage(error.response?.data.error)
+            })
     }
 
     return (
@@ -150,10 +197,22 @@ const UpdateFoodOptions = (props) => {
                         </Select>
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField id="no-of-ingredients" label="# of Ingredients" variant="outlined" type="number" />
+                        <TextField 
+                            id="no-of-ingredients" 
+                            label="# of Ingredients" 
+                            variant="outlined" 
+                            type="number" 
+                            onChange={(e)=>{setFormData({...formData, ingredients: e.target.value})}}
+                        />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField id="calories" label="Calories" variant="outlined" type="number"/>
+                        <TextField 
+                            id="calories" 
+                            label="Calories" 
+                            variant="outlined" 
+                            type="number"
+                            onChange={(e)=>{setFormData({...formData, calories: e.target.value})}}
+                        />
                     </Grid>
                     <Grid item xs={12} className={classes.selectContainer}>
                         <InputLabel id="health-type-label">Health Label</InputLabel>
@@ -194,11 +253,24 @@ const UpdateFoodOptions = (props) => {
                             <MenuItem value={'wheat-free'}>Wheat Free</MenuItem>
                         </Select>
                     </Grid>
-                    <Grid item xs={12} className={classes.selectContainer}>
-                        <TextField id="excluded" label="Excluded" variant="outlined" />
+                    <Grid item xs={6} className={classes.selectContainer}>
+                        <TextField 
+                            id="main_ingredient" 
+                            label="Main Ingredient" 
+                            variant="outlined" 
+                            onChange={(e)=>{setFormData({...formData, mainIngredient: e.target.value})}}
+                        />
+                    </Grid>
+                    <Grid item xs={6} className={classes.selectContainer}>
+                        <TextField 
+                            id="excluded" 
+                            label="Excluded" 
+                            variant="outlined" 
+                            onChange={(e)=>{setFormData({...formData, excluded: e.target.value})}}
+                        />
                     </Grid>
                     <Grid item xs={12} className={classes.buttonContainer}>
-                        <Button variant="contained" className={classes.button} onClick={e=>console.log(e)}>Update</Button>
+                        <Button variant="contained" className={classes.button} onClick={submitHandler}>{isLoading ? <LoadingSpinner/> : 'Update'}</Button>
                     </Grid>
                 </Grid>
             </Box>

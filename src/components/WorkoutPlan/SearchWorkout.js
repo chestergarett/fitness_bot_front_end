@@ -26,9 +26,11 @@ const initialState = {
 
 const SearchResults = ({results}) => {
     const [openForm, setOpenForm] = useState(false)
+    const [workout, setWorkout] = useState({})
 
-    const openFormHandler = () => {
+    const openFormHandler = (r) => {
         setOpenForm(true)
+        setWorkout(r)
     }
 
     const closeFormHandler = () => {
@@ -41,8 +43,8 @@ const SearchResults = ({results}) => {
                   
                 return(
                 <>
-                {openForm ? <AddWorkout onClose={closeFormHandler} key={v4()} result={r}/> : '' }
-                <Card key={r.id} className={classes.card} onClick={openFormHandler}>
+                {openForm ? <AddWorkout onClose={closeFormHandler} key={v4()} result={workout}/> : '' }
+                <Card key={r.id} className={classes.card} onClick={()=> openFormHandler(r)}>
                     <Typography className={classes.header} component="div">
                         {r.name}
                     </Typography>
@@ -83,10 +85,6 @@ const SearchWorkout = () => {
     const [isLoading,setIsLoading] = useState(false)
     const [error,setError] = useState(false)
 
-    //pagination
-    const [currentPage, setCurrentPage] = useState(1);
-    const [resultsPerPage] = useState(5);
-
     //fetch data
     const searchHandler = () => {
         setIsLoading(true)
@@ -104,14 +102,6 @@ const SearchWorkout = () => {
         })
     }
 
-    // Get current posts
-    const indexOfLastResult = currentPage * resultsPerPage;
-    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
-    const currentResults = results.slice(indexOfFirstResult, indexOfLastResult);
-
-    // Change page
-    const paginate = pageNumber => setCurrentPage(pageNumber);
-
     return (
         <Paper elevation={0} className={classes.paper}>
             <Box className={classes.searchbar}>
@@ -123,12 +113,7 @@ const SearchWorkout = () => {
                 />
                 <Button variant="contained" className={classes.button} onClick={searchHandler}>Search</Button>
             </Box>
-            {isLoading ? <LoadingSpinnerDark/> : (results.length==0 ? <div className={classes.nosearch}>No search results.</div> : <SearchResults results={currentResults}/>)}
-            <Pagination
-                resultsPerPage={resultsPerPage}
-                totalResults={results.length}
-                paginate={paginate}
-            />
+            {isLoading ? <LoadingSpinnerDark/> : (results.length==0 ? <div className={classes.nosearch}>No search results.</div> : <SearchResults results={results}/>)}
         </Paper>
     )
 }

@@ -1,6 +1,119 @@
 .card{
-    /* display: flex !important; */
-    /* flex-direction: row !important; */
-    margin-right: 1rem;
+    display: flex !important;
+    flex-direction: column !important;
+    margin-right: 1rem !important;
+    padding: .5rem !important;
+    max-height: 39rem !important;
+}
+
+.header{
+    font-size: 20px !important;
+    font-weight: bold;
+    color: #EE4035 !important;
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.details{
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.header_and_image{
+    width: 60% !important;
+}
+
+.list{
+    max-height: 15rem !important;
+    overflow-y: scroll;
+    background-color: whitesmoke !important;
+    padding: 1rem !important;
+}
+
+.image{
+    object-fit: contain !important;
+}
+
+.ingredients{
+    width: 40% !important;
+}
+
+.otherDetails{
+    display: flex !important;
+    margin-top: 1rem !important;
+}
+
+.otherDetails_1{
+    display: flex !important;
+    flex-direction: column !important;
+    width: 50%;
+}
+
+.subHeading{
+    margin-bottom: 1rem !important;
+    margin-right: .5rem !important;
+}
+
+.otherDetails_2{
+    display: flex !important;
+    flex-direction: column !important;
+    width: 50%;
+}
+
+.heading{
+    margin-bottom: 1rem !important;
+    margin-right: .5rem !important;
+}
+
+.otherDetails_3{
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
+
+.otherDetails_3 > *{
+    display: flex !important;
+    width: 80%;
+}
+
+.dateInput{
+    display: flex !important;
+    width: 100%;
+}
+
+.buttonContainer{
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 1rem !important;
+}
+
+.success{
+    color: green;
+    margin-top: .2rem;
+    font-size: 12px;
+}
+.addButton{
+    margin-top: 1rem !important;
+    width: 80%;
+    display: flex !important;
+    justify-content: center !important;
+    border-radius: 999px;
+    padding: 1rem !important;
+}
+
+.errors{
+    margin-top: .5rem;
     padding: .5rem;
+    border: 1px solid #800000;
+    border-radius: 12px;
+    color: #800000;
+}
+
+.errorMessages{
+    display: flex;
+    font-size: 10px;
 }

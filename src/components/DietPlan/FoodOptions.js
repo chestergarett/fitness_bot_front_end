@@ -39,6 +39,7 @@ const ExpandMore = styled((props) => {
 }));
 
 const FoodOptions = (props) => {
+
     const [isLoading, setIsLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [successMessage, setSucessMessage] = useState(false);
@@ -48,8 +49,8 @@ const FoodOptions = (props) => {
     const [errorMessage, setErrorMessage] = useState(false);
     const [addFood, setAddFood] = useState(false)
     const [update, setUpdate] = useState(false);
-    const history = useHistory()
-    const { userHeaders } = useContext(UserContext);
+    const [foodOption, setFoodOption] = useState(null)
+    const { userHeaders, userSelectedDietPlan } = useContext(UserContext);
 
     const [expanded, setExpanded] = useState(false);
 
@@ -65,8 +66,9 @@ const FoodOptions = (props) => {
         setUpdate(false)
     }
 
-    const openAddFoodHandler = () => {
+    const openAddFoodHandler = (r) => {
         setAddFood(true)
+        setRecipe(r)
     }
 
     const closeAddFoodHandler = () => {
@@ -74,7 +76,7 @@ const FoodOptions = (props) => {
     }
 
     const initialState = {
-        "food_option[diet_plan_id]": props.dietPlan,
+        "food_option[diet_plan_id]": userSelectedDietPlan.id,
         "food_option[meal_type]": 'Dinner',
         "food_option[dish_type]": 'Main course',
         "food_option[diet_type]": 'balanced',
@@ -92,7 +94,7 @@ const FoodOptions = (props) => {
                 headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')),
             })
             .then( (res) => { 
-            console.log(res.data.recipes)
+            setFoodOption(res.data.data.id)
             setRecipes(res.data.recipes)
             setSuccess(true)
             setError(false)
@@ -101,10 +103,13 @@ const FoodOptions = (props) => {
             .catch( (err) => {
             setErrorMessage(err.response?.data.errors)
             setIsLoading(false) 
-            console.log(error.response)
             setSuccess(false)
             setError(true)})
-    }, [props.dietPlan])
+    }, [userSelectedDietPlan])
+
+    const handleFoodOptions = (res) => {
+        setRecipes(res.data.recipes)
+    }
 
     return (
         <Paper elevation={1} className={classes.main}>
@@ -117,9 +122,8 @@ const FoodOptions = (props) => {
                 recipes.map(r=> { 
                 return(
                     <>
-                    {addFood ? <AddFood onClose={closeAddFoodHandler} data={r.recipe}/> : ''}
                     <Card key={v4()} className={classes.card}>
-                        <div onClick={openAddFoodHandler} className={classes.modalOpen}>
+                        <div onClick={()=>{openAddFoodHandler(r)}} className={classes.modalOpen}>
                             <CardMedia
                                 component="img"
                                 alt={r.label}
@@ -164,7 +168,8 @@ const FoodOptions = (props) => {
                 )
             })}
             </div>
-            {update ? <UpdateFoodOptions onClose={closeUpdateHandler}/> : ''}
+            {addFood ? <AddFood onClose={closeAddFoodHandler} data={recipe.recipe} foodOptionId={foodOption}/> : ''}
+            {update ? <UpdateFoodOptions onClose={closeUpdateHandler} foodOptionId={foodOption} handleFoodOptions={(res)=>{handleFoodOptions(res)}}/> : ''}
         </Paper>
     )
 }
