@@ -18,3 +18,16 @@
     width: 700px;
     transform: rotate(190.72deg);
 }
+
+@media only screen and (max-width: 768px) {
+    .container{
+        position: absolute !important;
+        z-index: 1;
+        left: 0;
+        transform: rotate(180deg);
+    }
+
+    .mainPic{
+        display: none;
+    }
+}

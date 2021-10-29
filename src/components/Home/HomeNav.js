@@ -10,6 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 //icons
 import { FaRobot } from 'react-icons/fa';
 //components
@@ -17,6 +18,7 @@ import Subscriptions from '../Subscriptions/Subscriptions';
 
 const HomeNav = () => {
     const [displayModal, setDisplayModal] = useState(false)
+    const [displayMenu, setDisplayMenu] = useState("none")
     
     const openModalHandler = () => {
       setDisplayModal(true)
@@ -24,6 +26,14 @@ const HomeNav = () => {
     
     const closeModalHandler = () => {
       setDisplayModal(false)
+    }
+
+    const openMenuHandler = () => {
+      displayMenu === "none" ? setDisplayMenu("flex") : setDisplayMenu("none")
+    }
+      
+    const closeMenuHandler = () => {
+      setDisplayMenu("none")
     }
 
     return(
@@ -43,13 +53,16 @@ const HomeNav = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={classes.heading}>
                         fitness bot
                     </Typography>
-                    <Button color="inherit" className={classes.button} onClick={openModalHandler}>Subscribe</Button>
-                    <BrowserLink to='/Login'>
-                        <Button color="inherit" className={classes.button}>Login</Button>
-                    </BrowserLink>
-                    <BrowserLink to='/Signup'>
-                        <Button color="inherit" className={classes.button2}>Signup</Button>
-                    </BrowserLink>
+                    <MenuIcon onClick={openMenuHandler} onClose={closeMenuHandler} className={classes.hamburger} style={{display: "none"}}/>
+                    <div className={classes.btnContainer} style={{display: displayMenu}}> 
+                      <Button color="inherit" className={classes.button} onClick={openModalHandler}>Subscribe</Button>
+                      <BrowserLink to='/Login'>
+                          <Button color="inherit" className={classes.button}>Login</Button>
+                      </BrowserLink>
+                      <BrowserLink to='/Signup'>
+                          <Button color="inherit" className={classes.button2}>Signup</Button>
+                      </BrowserLink>
+                    </div>
                 </Toolbar>
             </AppBar>
         </Box>

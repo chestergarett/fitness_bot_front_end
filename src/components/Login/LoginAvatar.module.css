@@ -1,13 +1,11 @@
 .container{
-    position: absolute;
-    width: 900.6px;
+    position: relative;
+    width: 50%;
     height: 1328.05px;
-    left: -122.85px;
+    left: -192.85px;
     top: -290px;
     background: linear-gradient(178.2deg, #EE4035 10.1%, #6D63FF 108.87%);
     box-shadow: 20px 0px 30px 2px rgba(6, 3, 10, 0.2);
-    transform: rotate(14.8deg);
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,6 +13,32 @@
 
 .mainPic{
     background: transparent;
-    height: 600px;
-    transform: rotate(-15deg);
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container{
+        position: absolute !important;
+        background: linear-gradient(178.2deg, #ee4135 10.1%, #6D63FF 108.87%);
+        border: 1px solid red;
+        width: 100%;
+        height: 100vh;
+        left: 0px !important;
+        /*transform: rotate(0deg)!important;*/
+        top: 0px;
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 1399px) {
+    .container{
+        position: relative;
+        /*transform: rotate(24.8deg) !important;*/
+        width: 100%;
+        box-shadow: 0px 0px 0px 0px rgba(6, 3, 10, 0.2);
+        left: 0px;
+        z-index: 1;
+        margin: 0;
+    }
+
 }

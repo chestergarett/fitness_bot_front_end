@@ -11,20 +11,30 @@
 .modal{
     position: fixed;
     top: 20vh;
-    left: 5%;
-    width: 50rem !important;
+    left: 25vw;
+    right: 25vw;
+    margin-left: 25vw;
+    width: 50vw;
+    min-width: 50%;
+    max-width: 50rem;
     background-color: whitesmoke;
     padding: 1rem;
+    margin: auto;
     border-radius: 14px;
     box-shadow: 0 2px 8px rgba(0,0,0.25);
     z-index: 30;
     animation: slide-down 300ms ease-out forwards;
 }
 
-@media (min-width: 768px){
+@media (max-width: 768px){
     .modal{
-        width: 40rem;
-        left: calc(50% - 20rem);
+        position: absolute !important;
+        width: 80vw !important;
+        min-width: 50vw !important;
+        max-width: 300px;
+        left: 10vw !important;
+        top: 10vh;
+        margin: 0 auto;
     }
 }
 

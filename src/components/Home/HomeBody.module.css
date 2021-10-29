@@ -7,11 +7,12 @@
     height: 60vh;
     width: 70vw;
     margin-top: 1rem;
+    object-fit: contain;
 }
 
 .text{
     width: 30%;
-    margin-top: 1rem;
+    margin: 0 !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,4 +40,30 @@
 .button:hover{
     background: #EE4035 !important;
     color: black !important;
+}
+
+/* for screens with width less than 900px */
+@media only screen and (max-width: 900px) {
+    .main{
+        flex-direction: column-reverse;
+    }
+
+    .text{
+        width: 100%;
+        height: 200px;
+        max-height: 30vh;
+    }
+
+    .pic{
+        max-height: 55vh;
+        width: 85%;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .text{
+        margin-left: 1rem;
+    }
 }

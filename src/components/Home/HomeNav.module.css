@@ -13,6 +13,11 @@
     margin-top: .3rem;
 }
 
+.btnContainer{
+    flex-direction: row;
+    align-items: center;
+}
+
 .button{
     margin-right: 1rem !important;
     padding: 1rem !important;
@@ -23,6 +28,36 @@
     width: 100%;
     padding: .5rem !important;
     border-radius: 9999px !important;
+    height: 90%;
     border: 1px solid #EE4035 !important;
     color: #EE4035;
+}
+
+.hamburger{
+    display: none !important;
+}
+
+/* for screens with width less than 900px */
+@media only screen and (max-width: 900px) {
+    .appBar{
+        margin-top: 1rem;
+    }
+    .btnContainer{
+        flex-direction: column;
+        align-content: center;
+        position: absolute !important;
+        background-color: rgb(255, 255, 255);
+        top: 5vh;
+        right: 1rem;
+    }
+    .hamburger{
+        display: inline-block !important;
+        margin-right: 1rem;
+    }
+}
+/* for screens with width greater than 900px */
+@media only screen and (min-width: 901px) {
+    .btnContainer{
+        display: flex !important;
+    }
 }
