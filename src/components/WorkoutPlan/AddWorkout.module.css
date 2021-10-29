@@ -55,6 +55,9 @@
 .addButton{
     width: 80% !important;
     justify-self: center;
+    margin: 1rem !important;
+    padding: 1rem !important;
+    border-radius: 9999px !important;
 }
 
 .errors{

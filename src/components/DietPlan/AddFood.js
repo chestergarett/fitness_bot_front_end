@@ -1,5 +1,6 @@
 //dependencies
 import { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import { v4 } from 'uuid';
 import qs from 'qs';
 //css
@@ -19,7 +20,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import Button from '@mui/material/Button';
-import axios from 'axios';
+
 
 const initialState = {
     startDate: '',    
@@ -45,8 +46,9 @@ const AddFood = (props) => {
             "food[dishType]": props.data.dishType[0],
             "food[calories]": props.data.calories,
             "food[totalWeight]": props.data.totalWeight,
-            "food[start_date]": startValue,
+            "food[startDate]": startValue,
             "food[diet_plan_id]": userSelectedDietPlan.id,
+            "food[status]": "NOT STARTED"
         }
 
         console.log(props.data.ingredientLines)

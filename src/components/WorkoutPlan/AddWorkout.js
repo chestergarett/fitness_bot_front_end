@@ -88,7 +88,7 @@ const AddWorkout = (props) => {
                         image={props.result.gifUrl}
                         className={classes.image}
                         />
-                    <CardContent>
+                    <div>
                         <div className={classes.labelGroup}>
                             <span className={classes.keyLabel}>Equipment &nbsp;</span>
                             <span className={classes.valueLabel}>{props.result.equipment} </span>
@@ -101,7 +101,7 @@ const AddWorkout = (props) => {
                             <span className={classes.keyLabel}>Body Part &nbsp;</span>
                             <span className={classes.valueLabel}>{props.result.bodyPart} </span>
                         </div>
-                    </CardContent>
+                    </div>
                 </FormControl>
                 <FormControl className={classes.rightForm}>
                     <FormGroup className={classes.dateGroup}>
