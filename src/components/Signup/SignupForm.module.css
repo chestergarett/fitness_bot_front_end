@@ -1,12 +1,15 @@
 .main{
     position: absolute;
     width: 476px;
-    height: 639px;
+    height: auto;
     left: 80px;
     top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid rgb(235, 232, 232);
+    border-radius: 9px;
+    background-color: white;
 }
 
 .logo{
@@ -85,3 +88,14 @@
     margin-bottom: .2rem;
 }
 
+@media only screen and (max-width: 768px) {
+    .main{
+        position: relative;
+        width: 85%;
+        max-width: 376px;
+        margin: auto;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+}

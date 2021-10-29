@@ -2,6 +2,20 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: #FFFFFF;
     display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .main{
+        flex-direction: column-reverse;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .main{
+        margin: 0;
+        justify-content: space-around !important;
+    }
 }
