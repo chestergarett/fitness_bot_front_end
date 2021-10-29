@@ -1,0 +1,39 @@
+.card{
+    flex: column !important;
+    padding: 1rem !important;
+    width: 80%;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.header{
+    font-style: italic !important;
+    font-weight: bold !important;
+    color: #EE4035 !important;
+    margin-bottom: 1rem !important;
+}
+
+.titleInput{
+    margin-bottom: .5rem;
+    width: 80% !important;
+}
+
+.titleDescription{
+    width: 80% !important;
+    margin-bottom: .5rem !important;
+}
+
+.dateGroup{
+    width: 80% !important;
+    margin-bottom: 1rem !important;
+}
+
+.dateGroup2{
+    width: 80% !important;
+    margin-bottom: 1rem !important;
+}
+
+.addButton{
+    background-color: #EE4035 !important;
+    border-radius: 9999px !important;
+}

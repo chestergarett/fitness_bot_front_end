@@ -12,7 +12,7 @@ import FoodOptions from './FoodOptions';
 import classes from './DietPlan.module.css';
 //material
 import { styled } from '@mui/material/styles';
-import  Divider  from '@mui/material/Divider';
+
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -26,14 +26,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const DietPlan = () => {
     
     const { userHeaders, 
-        userDietPlans, 
         setUserDietPlans,
         userSelectedDietPlan, 
         setUserSelectedDietPlan,
-        userFoodOptions, 
-        setFoodOptions, 
-        userFoods, 
-        setFoods } = useContext(UserContext);
+         } = useContext(UserContext);
     
     useEffect( ()=> {
         axios.get('https://fitness-bot-avion.herokuapp.com/api/v1/diet_plans', 

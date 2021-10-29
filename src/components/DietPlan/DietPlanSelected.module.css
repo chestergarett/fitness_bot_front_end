@@ -4,6 +4,13 @@
     width: 20%;
 }
 
+.title{
+    display: flex !important;
+    flex-direction: row !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+}
+
 .dates{
     display: flex;
     flex-direction: row !important;
@@ -14,4 +21,8 @@
     display: flex;
     flex-direction: column !important;
     margin-left: 1rem !important;
+}
+
+.mainHeaderIcons{
+    color: #EE4035 !important;
 }
