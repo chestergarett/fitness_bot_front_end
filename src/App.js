@@ -27,15 +27,11 @@ function App() {
     <Router>
       <Switch>
       <UserProvider>
-          {!auth ? 
-            <Route path='/' exact component={HomeMain}/> : 
-            <>
+            <Route path='/' exact component={HomeMain}/> 
             <Route path='/Survey' component={Survey}/>
             <Route path='/Profile' component={Profile}/>
             <Route path='/DietPlan' component={DietPlan}/>
             <Route path='/WorkoutPlan' component={WorkoutPlan}/>
-            </>
-          }
             <Route path='/Login' component={LoginMain}/>
             <Route path='/Signup' component={SignupMain}/>
       </UserProvider>
