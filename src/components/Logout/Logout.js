@@ -1,11 +1,8 @@
 //dependencies
-import { useState, useContext } from 'react';
-import { Link as BrowserLink } from 'react-router-dom';
+import { useContext } from 'react';
 import { v4 } from 'uuid';
-//css
-import classes from './Logout.module.css';
-//components
-import Subscriptions from '../Subscriptions/Subscriptions';
+//context
+import UserContext from '../../context/user-context.js';
 //material
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -16,40 +13,23 @@ import ListItemText from '@mui/material/ListItemText';
 const options = [
     {key: v4(), text: 'Logout', icon: '', link: '/'},
 ]
+
 const Logout = () => {
-    // const { openModals, closeModals,  displayModal} = useContext(UserContext);
-    const [displayModal, setDisplayModal] = useState(false)
-    
-    const openModalHandler = () => {
-      setDisplayModal(true)
-    }
-    
-    const closeModalHandler = () => {
-      setDisplayModal(false)
-    }
+
+  const { logoutUser } = useContext(UserContext);
 
     return (
       <>
         <List>
           {options.map((option) => (
-            option.text==='Subscriptions' ?
-              <ListItem button key={option.key} onClick={openModalHandler}>
-                <ListItemIcon>
-                  {option.icon}
-                </ListItemIcon>
-                <ListItemText primary={option.text} />
-              </ListItem> :
-              <BrowserLink to={option.link}>
-                <ListItem button key={option.text}>
-                  <ListItemIcon>
-                    {option.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={option.text} />
-                </ListItem>
-            </BrowserLink>
+            <ListItem button key={option.text} onClick={logoutUser}>
+              <ListItemIcon>
+                {option.icon}
+              </ListItemIcon>
+              <ListItemText primary={option.text} />
+            </ListItem>
           ))}
         </List>
-        {displayModal ? <Subscriptions onClose={closeModalHandler} /> : ''}
       </>
     )
 }

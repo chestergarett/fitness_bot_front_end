@@ -27,7 +27,7 @@ const SignupForm = () => {
 
     const history = useHistory()
     const [formData, setFormData] = useState(initialState)
-    const { userAuth,setUserAuth,setHeaders } = useContext(UserContext);
+    const { userHeaders,setUserAuth,setHeaders } = useContext(UserContext);
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -42,6 +42,7 @@ const SignupForm = () => {
         .then( (res) => { 
             setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token, res.data.data.user.id)
             setHeaders( res.data.data.user.email, res.data.data.user.authentication_token )
+            window.localStorage.setItem('userHeaders', JSON.stringify(userHeaders))
             console.log(credentials)
             setIsLoading(false)
             history.push('/Survey')

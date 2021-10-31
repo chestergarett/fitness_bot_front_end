@@ -8,8 +8,8 @@ const UserContext = createContext({
         id: "",
     },
     userHeaders: {
-        'X-User-Email': "",
-        'X-User-Token': "",
+        'X-User-Email': JSON.parse(localStorage.getItem('userHeaders'))!==null ? JSON.parse(localStorage.getItem('userHeaders'))['X-User-Email'] : '',
+        'X-User-Token': JSON.parse(localStorage.getItem('userHeaders'))!==null ? JSON.parse(localStorage.getItem('userHeaders'))['X-User-Token'] : '',
     },
 });
 

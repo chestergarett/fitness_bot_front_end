@@ -1,6 +1,6 @@
 //dependecies
 import { useState, useContext } from 'react';
-import { Link as RouterLink, useHistory }  from 'react-router-dom';
+import { Link as RouterLink, useHistory, Redirect }  from 'react-router-dom';
 import axios from 'axios';
 //context
 import UserContext from '../../context/user-context.js';
@@ -23,28 +23,8 @@ const initialState = {
 }
 
 const LoginForm = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [formData, setFormData] = useState(initialState);
-    const { setUserAuth, setHeaders, userHeaders } = useContext(UserContext);
-    const [errorMessage, setErrorMessage] = useState(false)
-    const history = useHistory();
-
-    const loginUser = () => {
-        const credentials = {email: formData.email, password: formData.password }
-        setIsLoading(true)
-        axios.post('https://fitness-bot-avion.herokuapp.com/api/v1/sessions', credentials)
-        .then( (res) => { 
-            setUserAuth(res.data.data.user.email, res.data.data.user.authentication_token, res.data.data.user.id)
-            setHeaders( res.data.data.user.email, res.data.data.user.authentication_token )
-            window.localStorage.setItem('userHeaders', JSON.stringify(userHeaders))
-            setIsLoading(false)
-            history.push('/Profile')
-        })
-        .catch( (err) => {
-            console.log(err)
-            setIsLoading(false)
-            setErrorMessage(true) })
-    }
+    const { loginUser, errorMessage, isLoading } = useContext(UserContext);
+    const [formData, setFormData] = useState(initialState)
 
     return (
         <div className={classes.main}>
@@ -76,7 +56,7 @@ const LoginForm = () => {
             </Link>
             <Button 
                 variant="contained" 
-                onClick={loginUser}
+                onClick={()=>{loginUser(formData.email, formData.password)}}
                 className={classes.button}
             >
                 {!isLoading ? 'Login' : <LoadingSpinner/>}
