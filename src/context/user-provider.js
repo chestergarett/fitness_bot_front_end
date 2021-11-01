@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import UserContext from './user-context.js';
 
 const initialClientProfile = {
+    id: '',
     first_name: '',
     last_name: '',
     height: '',

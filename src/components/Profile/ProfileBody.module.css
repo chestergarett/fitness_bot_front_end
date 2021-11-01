@@ -1,0 +1,111 @@
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem !important;
+}
+
+.headerText{
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+}
+
+.headerButton{
+    background-color: #EE4035 !important;
+    border-radius: 999px !important;
+    margin-right: .5rem !important;
+}
+
+.cancelButton{
+    background-color: #303030 !important;
+    border-radius: 999px !important;
+    margin-right: .5rem !important;
+}
+
+.nameDetails{
+    display: flex; 
+    width: 50% !important;
+}
+
+.nameDetailsInputs{
+    margin-right: 1rem !important;
+    margin-bottom: 1rem !important;
+    width: 50% !important;
+}
+
+.currentDetailsHeader{
+    margin-bottom: .5rem !important;
+}
+
+.subheaderText{
+    color: black !important;
+    letter-spacing: 1px !important;
+}
+
+.gender{
+    margin-bottom: .5rem !important;
+}
+
+.currentheightandweight{
+    display: flex;
+    width: 50%;
+}
+
+.selectContainer{
+    display: flex;
+    flex-direction: column !important; 
+}
+
+.bodyTypeContainer{
+    display: flex !important;
+    align-items: center !important;
+    width: 49% !important;
+    margin-bottom: 1rem !important;
+}
+
+.bodyTypeLabel{
+    margin-right: 1rem !important;
+    width: 20% !important;
+}
+
+.bodyTypeInputs{
+    width: 100%;
+}
+
+.targetContainer{
+    display: flex;
+    flex-direction: column !important;
+}
+
+.goalWeightContainer{
+    display: flex !important;
+    margin-top: 1rem !important;
+    width: 49% !important;
+}
+
+.bodyTypeInputs2{
+    width: 100%;
+    margin-right: .5rem !important;
+}
+
+.success{
+    color: green;
+    border: 1px solid green;
+    padding: .5rem;
+    border-radius: 8px;
+    margin-bottom: .5rem;
+}
+
+.error{
+    color:  #cc0000;
+    border: 1px solid  #cc0000;
+    padding: .5rem;
+    border-radius: 8px;
+    margin-bottom: .5rem;
+}
+
