@@ -3,7 +3,6 @@ import { useState, useContext } from 'react';
 import axios from 'axios';
 import { v4 } from 'uuid';
 //components
-import Pagination from '../Pagination/Pagination';
 import AddWorkout from './AddWorkout';
 import LoadingSpinnerDark from '../LoadingSpinner/LoadingSpinnerDark';
 //context

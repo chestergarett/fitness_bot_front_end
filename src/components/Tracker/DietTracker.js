@@ -13,7 +13,7 @@ import EditFood from '../DietPlan/EditFood';
 const localizer = momentLocalizer(moment)
 
 const DietTracker = () => {
-    const { userSelectedDietPlan, userFoods,setUserFoods, userHeaders } = useContext(UserContext);
+    const { userSelectedDietPlan, refresh, userHeaders } = useContext(UserContext);
     const [events, setEvents] = useState([{}])
     const [event, setEvent] = useState({})
     const [open, setOpen] = useState(false)
@@ -68,6 +68,7 @@ const DietTracker = () => {
                         media: event.media,
                         status: event.status}
                     ])
+                    console.log(event)
                 }) 
                 console.log(res.data.data)
                 console.log(userSelectedDietPlan.id)
@@ -76,7 +77,7 @@ const DietTracker = () => {
                 console.log(error.response.data.error)
             })
         }
-    ,[])
+    ,[refresh])
 
     
 

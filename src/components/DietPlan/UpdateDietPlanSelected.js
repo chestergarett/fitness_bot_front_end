@@ -23,8 +23,6 @@ import Button from '@mui/material/Button';
 const UpdateDietPlanSelected = (props) => {
     
     const { userHeaders, 
-        setUserDietPlans,
-        userSelectedDietPlan, 
         setUserSelectedDietPlan,
          } = useContext(UserContext);
 

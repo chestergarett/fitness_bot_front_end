@@ -29,6 +29,7 @@ const UserProvider = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('userHeaders')!==null ? true : false);
+    const [refresh, setRefresh] = useState(new Date())
 
     const [clientProfile, setClientProfile] = useState(initialClientProfile)
 
@@ -100,7 +101,10 @@ const UserProvider = (props) => {
                 setErrorMessage,
                 isLoading,
                 setIsLoading,
-                logoutUser
+                logoutUser,
+                //trigger refresh
+                refresh,
+                setRefresh
             }}
         >
             {props.children}

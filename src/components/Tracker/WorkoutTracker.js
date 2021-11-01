@@ -15,7 +15,7 @@ const allViews = Object.keys(Views).map(k => Views[k])
 
 const WorkoutTracker = (props) => {
 
-  const { userWorkouts,setUserWorkouts, userHeaders } = useContext(UserContext);
+  const { setUserWorkouts, userHeaders, refresh } = useContext(UserContext);
   const [events, setEvents] = useState([{}])
   const [event, setEvent] = useState({})
   const [open, setOpen] = useState(false)
@@ -49,7 +49,7 @@ const WorkoutTracker = (props) => {
         console.log(error)
     })
 }
-,[])
+,[refresh])
 
 const openModalHandler = (event) => {
   setOpen(true)

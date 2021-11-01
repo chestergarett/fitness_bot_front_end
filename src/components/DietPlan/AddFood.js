@@ -27,6 +27,7 @@ const initialState = {
 }
 
 const AddFood = (props) => {
+    const { userHeaders, userSelectedDietPlan, setRefresh } = useContext(UserContext); 
     const [startValue, setStartValue] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(initialState);
@@ -34,7 +35,6 @@ const AddFood = (props) => {
     const [successMessage, setSuccessMessage] = useState('')
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState([]);
-    const { userHeaders, userSelectedDietPlan } = useContext(UserContext); 
 
     const submitHandler = () => {
         const credentials = {
@@ -61,6 +61,7 @@ const AddFood = (props) => {
                 setIsLoading(false)
                 setSuccess(true)
                 setError(false)
+                setRefresh(new Date())
                 setSuccessMessage('Successfully added to diet plan.')
             })
             .catch( (error) => {

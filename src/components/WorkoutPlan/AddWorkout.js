@@ -21,8 +21,6 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import Button from '@mui/material/Button';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 
 const initialState = {
     reps: '',
@@ -31,8 +29,7 @@ const initialState = {
 
 const AddWorkout = (props) => {
     
-    const history = useHistory()
-    const { userHeaders } = useContext(UserContext);
+    const { userHeaders, refresh, setRefresh } = useContext(UserContext);
     const [startValue, setStartValue] = useState(null);
     const [endValue, setEndValue] = useState(null);
     const [error, setError] = useState(false)
@@ -66,6 +63,7 @@ const AddWorkout = (props) => {
         setSuccess(true)
         setError(false)
         setIsLoading(false)
+        setRefresh(new Date())
         })
         .catch( (err) => {
         setErrorMessage(err.response?.data.errors)

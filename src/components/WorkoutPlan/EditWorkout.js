@@ -28,7 +28,7 @@ import Snackbar from '@mui/material/Snackbar';
 
 const EditWorkout = (props) => {
     
-    const { userHeaders } = useContext(UserContext);
+    const { userHeaders, setRefresh } = useContext(UserContext);
 
     const initialState = {
         reps: props.event.reps,
@@ -69,6 +69,7 @@ const EditWorkout = (props) => {
             setSuccessUpdate(true)
             setErrorUpdate(false)
             setIsLoadingUpdate(false)
+            setRefresh(new Date())
             })
             .catch( (err) => {
             setErrorMessageUpdate(err.response?.data.errors)
@@ -86,6 +87,7 @@ const EditWorkout = (props) => {
             setSuccessDelete(true)
             setErrorDelete(false)
             setIsLoadingDelete(false)
+            setRefresh(new Date())
             })
             .catch( (err) => {
             setErrorMessageDelete(err.response?.data.errors)

@@ -27,7 +27,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 const EditFood = (props) => {
 
-    const { userHeaders } = useContext(UserContext);
+    const { userHeaders, setRefresh } = useContext(UserContext);
 
     const initialState = {
         calories: props.event.calories,
@@ -71,6 +71,7 @@ const EditFood = (props) => {
             setSuccessUpdate(true)
             setErrorUpdate(false)
             setIsLoadingUpdate(false)
+            setRefresh(new Date())
             })
         .catch( (err) => {
             console.log(props.event.id)
@@ -90,6 +91,7 @@ const EditFood = (props) => {
             setSuccessDelete(true)
             setErrorDelete(false)
             setIsLoadingDelete(false)
+            setRefresh(new Date())
             })
             .catch( (err) => {
             setErrorMessageDelete(err.response?.data.errors)
