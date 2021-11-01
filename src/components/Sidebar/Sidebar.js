@@ -22,7 +22,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
 const options = [
-    {key: v4(), text: 'Home', icon: <HomeIcon className={classes.icons} />, link: '/Home'},
+    {key: v4(), text: 'Dashboard', icon: <HomeIcon className={classes.icons} />, link: '/Dashboard'},
     {key: v4(), text: 'Profile', icon: <AssignmentIndIcon className={classes.icons} />, link: '/Profile'},
     {key: v4(), text: 'Diet Plan', icon: <FastfoodIcon className={classes.icons} />, link: '/DietPlan'},
     {key: v4(), text: 'Workout Plan', icon: <FitnessCenterIcon className={classes.icons} />, link: '/WorkoutPlan'},

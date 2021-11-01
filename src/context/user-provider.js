@@ -28,6 +28,7 @@ const UserProvider = (props) => {
     const [userFoodOptions, setFoodOptions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('userHeaders')!==null ? true : false);
 
     const [clientProfile, setClientProfile] = useState(initialClientProfile)
 
@@ -53,7 +54,8 @@ const UserProvider = (props) => {
             setHeaders( res.data.data.user.email, res.data.data.user.authentication_token )
             localStorage.setItem('userHeaders', JSON.stringify(userHeaders))
             setIsLoading(false)
-            history.push('/Profile')
+            setIsAuthenticated(true)
+            window.location.href = "/Dashboard";
         })
         .catch( (err) => {
             console.log(err)
@@ -62,9 +64,10 @@ const UserProvider = (props) => {
     }
 
     const logoutUser = () => {
-        window.localStorage.removeItem('userHeaders')
-        history.push('/')
-      };
+        window.localStorage.removeItem('userHeaders');
+        setIsAuthenticated(false);
+        window.location.href = "/";
+    };
     
     return (
         <UserContext.Provider
@@ -86,6 +89,8 @@ const UserProvider = (props) => {
                 userFoods,
                 setUserFoods,
                 //authentication methods
+                isAuthenticated,
+                setIsAuthenticated,
                 userAuth, 
                 setUserAuth,
                 userHeaders,
