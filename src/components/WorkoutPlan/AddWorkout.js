@@ -8,13 +8,12 @@ import UserContext from '../../context/user-context.js';
 //css
 import classes from './AddWorkout.module.css';
 //components
-import CenteredModalLight from '../Modals/CenteredModalLight';
+import ModalAddWorkout from '../Modals/ModalAddWorkout';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 //material
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -73,7 +72,7 @@ const AddWorkout = (props) => {
     }
 
     return (
-        <CenteredModalLight onClose={props.onClose} className={classes.modal}>
+        <ModalAddWorkout onClose={props.onClose}>
             <div className={classes.divBeforeForm}>
                 <FormControl className={classes.leftForm}>
                     <Typography className={classes.header} component="div">
@@ -138,7 +137,7 @@ const AddWorkout = (props) => {
                 {successMessage}
             </span> : ''}   
             <Button variant="contained" color="success" className={classes.addButton} onClick={submitHandler}>{isLoading ? <LoadingSpinner/> : 'Add Workout'}</Button>
-        </CenteredModalLight>
+        </ModalAddWorkout>
     )
 }
 

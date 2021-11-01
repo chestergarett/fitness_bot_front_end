@@ -15,7 +15,7 @@ import Profile from './components/Profile/Profile';
 import Survey from './components/Survey/Survey';
 import WorkoutPlan from './components/WorkoutPlan/WorkoutPlan';
 import DietPlan from './components/DietPlan/DietPlan';
-
+import Notif from './components/Notif/Notif';
 
 function App() {
 
@@ -32,6 +32,7 @@ function App() {
           <Route path='/Profile' component={Profile}/>
           <Route path='/DietPlan' component={DietPlan}/>
           <Route path='/WorkoutPlan' component={WorkoutPlan}/>
+          <Route path='/Notif' component={Notif}/>
           </> :
           <>
           <Route path='/Home' component={HomeMain}/> 

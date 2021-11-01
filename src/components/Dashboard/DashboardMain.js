@@ -1,8 +1,13 @@
+//css
+import classes from './DashboardMain.module.css';
 //components
 import Drawer from '../Drawer/Drawer';
 import KPIMain from '../KPIs/KPIMain';
+import DashboardColumn from './DashboardColumn';
+import DashboardPie from './DashboardPie';
 //material
 import { styled } from '@mui/material/styles';
+
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -18,6 +23,16 @@ const DashboardMain = () => {
         <Drawer>
             <DrawerHeader/>
             <KPIMain/>
+            <DrawerHeader/>
+            <div className={classes.charts}>
+                <div style={{marginRight: '1rem'}}>
+                    <DashboardColumn/>
+                </div>
+                <div>
+                <DashboardPie />
+                </div>
+            </div>
+            <DrawerHeader/>
         </Drawer>
     )
 }

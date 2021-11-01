@@ -1,0 +1,16 @@
+.charts{
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    overflow-x: scroll;
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+
+.column{
+    margin-right: 1rem;
+}
+
+.pie{
+    width: 30%;
+}

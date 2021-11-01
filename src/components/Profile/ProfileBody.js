@@ -7,7 +7,7 @@ import classes from './ProfileBody.module.css';
 //context
 import UserContext from '../../context/user-context.js';
 //components
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import LoadingSpinnerDark from '../LoadingSpinner/LoadingSpinnerDark';
 //material
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -105,7 +105,7 @@ const ProfileBody = (props) => {
                         <Button variant="contained" className={classes.headerButton} onClick={handleEnable}>Update</Button>
                         </> :
                         <>
-                        <Button variant="contained" className={classes.headerButton} onClick={handleSumbitUpdate}>{isLoading ? <LoadingSpinner/> : 'Submit'}</Button>
+                        <Button variant="contained" className={classes.headerButton} onClick={handleSumbitUpdate}>{isLoading ? <LoadingSpinnerDark/> : 'Submit'}</Button>
                         <Button variant="contained" className={classes.cancelButton} onClick={handleDisable}>Cancel</Button>
                         </>
                     }
