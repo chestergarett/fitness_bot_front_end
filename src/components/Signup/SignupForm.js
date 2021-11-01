@@ -45,7 +45,7 @@ const SignupForm = () => {
             window.localStorage.setItem('userHeaders', JSON.stringify(userHeaders))
             console.log(credentials)
             setIsLoading(false)
-            history.push('/Survey')
+            window.location.href = "/Survey";
         })
         .catch( (err) => {
             setErrorMessage(err.response.data.errors)

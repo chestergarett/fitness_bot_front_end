@@ -1,7 +1,6 @@
 //dependencies
 import { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 //context
 import UserContext from './user-context.js';
 
@@ -43,8 +42,6 @@ const UserProvider = (props) => {
         userHeaders["X-User-Email"] = email;
         userHeaders["X-User-Token"] = auth_token;
     }
-
-    const history = useHistory();
 
     const loginUser = (email, password) => {
         const credentials = {email: email, password: password }
