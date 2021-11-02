@@ -4,7 +4,7 @@ import axios from 'axios';
 //context
 import UserContext from '../../context/user-context.js';
 //components
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import LoadingSpinnerDark from '../LoadingSpinner/LoadingSpinnerDark';
 import ProfileBody from './ProfileBody';
 import Drawer from '../Drawer/Drawer';
 //material
@@ -56,7 +56,7 @@ const Profile = () => {
     return(
         <Drawer>
             <DrawerHeader />
-            {isLoading ? <LoadingSpinner/> : <ProfileBody clientProfile={clientProfile} />}
+            {isLoading ? <LoadingSpinnerDark/> : <ProfileBody clientProfile={clientProfile} />}
         </Drawer>
     )       
 }

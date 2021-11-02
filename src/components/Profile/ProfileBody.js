@@ -7,8 +7,9 @@ import classes from './ProfileBody.module.css';
 //context
 import UserContext from '../../context/user-context.js';
 //components
-import LoadingSpinnerDark from '../LoadingSpinner/LoadingSpinnerDark';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 //material
+import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -105,7 +106,7 @@ const ProfileBody = (props) => {
                         <Button variant="contained" className={classes.headerButton} onClick={handleEnable}>Update</Button>
                         </> :
                         <>
-                        <Button variant="contained" className={classes.headerButton} onClick={handleSumbitUpdate}>{isLoading ? <LoadingSpinnerDark/> : 'Submit'}</Button>
+                        <Button variant="contained" className={classes.headerButton} onClick={handleSumbitUpdate}>{isLoading ? <LoadingSpinner/> : 'Submit'}</Button>
                         <Button variant="contained" className={classes.cancelButton} onClick={handleDisable}>Cancel</Button>
                         </>
                     }

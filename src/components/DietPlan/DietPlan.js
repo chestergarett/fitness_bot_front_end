@@ -37,6 +37,7 @@ const DietPlan = () => {
         .then((res)=>  {
             setUserDietPlans(res.data.data);
             setUserSelectedDietPlan(res.data.data[0]);
+            console.log(res)
         })
         .catch((error)=> console.log(error))
     }, [])
