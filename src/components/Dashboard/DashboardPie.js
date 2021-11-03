@@ -1,3 +1,5 @@
+//dependencies
+import { useEffect } from 'react';
 import { merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
 // material
@@ -32,19 +34,18 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 1443, 4443];
+export default function PieChart({workoutPie}) {
 
-export default function PieChart() {
   const theme = useTheme();
+  const CHART_DATA = workoutPie?.map(a => a.count);
 
   const chartOptions = merge(BaseOptionChart(), {
     colors: [
-      theme.palette.primary.main,
       theme.palette.info.main,
       theme.palette.warning.main,
       theme.palette.error.main
     ],
-    labels: ['America', 'Asia', 'Europe', 'Africa'],
+    labels: workoutPie?.map(a => a.status),
     stroke: { colors: [theme.palette.background.paper] },
     legend: { floating: true, horizontalAlign: 'center' },
     dataLabels: { enabled: true, dropShadow: { enabled: false } },
@@ -64,7 +65,7 @@ export default function PieChart() {
 
   return (
     <Card>
-      <CardHeader title="Current Visits" />
+      <CardHeader title="Workout Progress" />
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="pie" series={CHART_DATA} options={chartOptions} height={280} width={400} />
       </ChartWrapperStyle>

@@ -30,14 +30,14 @@ const RootStyle = styled(Card)(() => ({
     )} 100%)`
 }));
 
-const CalorieKPI = () => {
+const CalorieKPI = (props) => {
     return (
         
         <RootStyle>
             <IconWrapperStyle>
                 <GiHamburger style={{fontSize: '30px'}} />
             </IconWrapperStyle>
-            <Typography variant="h3">85</Typography>
+            <Typography variant="h3">{props.kpi}</Typography>
             <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
                 calories burned
             </Typography>

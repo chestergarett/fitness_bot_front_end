@@ -30,14 +30,14 @@ const RootStyle = styled(Card)(() => ({
     )} 100%)`
 }));
 
-const WeightKPI = () => {
+const WeightKPI = (props) => {
     return (
         
         <RootStyle>
             <IconWrapperStyle>
                 <GiWeightScale style={{fontSize: '30px'}} />
             </IconWrapperStyle>
-            <Typography variant="h3">70 <Typography variant="caption">lbs</Typography> </Typography>
+            <Typography variant="h3">{props.kpi}<Typography variant="caption">lbs</Typography> </Typography>
             <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
                 current weight
             </Typography>

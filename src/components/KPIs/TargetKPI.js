@@ -30,14 +30,14 @@ const RootStyle = styled(Card)(() => ({
     )} 100%)`
 }));
 
-const TargetKPI = () => {
+const TargetKPI = (props) => {
     return (
         
         <RootStyle>
             <IconWrapperStyle>
                 <GiMultipleTargets style={{fontSize: '30px'}} />
             </IconWrapperStyle>
-            <Typography variant="h3">55 <Typography variant="caption">lbs</Typography> </Typography>
+            <Typography variant="h3">{props.kpi}<Typography variant="caption">lbs</Typography> </Typography>
             <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
                 target weight
             </Typography>

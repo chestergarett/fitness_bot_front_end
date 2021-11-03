@@ -30,14 +30,14 @@ const RootStyle = styled(Card)(() => ({
     )} 100%)`
 }));
 
-const WorkoutKPI = () => {
+const WorkoutKPI = (props) => {
     return (
         
         <RootStyle>
             <IconWrapperStyle>
                 <GiGymBag style={{fontSize: '30px'}} />
             </IconWrapperStyle>
-            <Typography variant="h3">150</Typography>
+            <Typography variant="h3">{props.kpi}</Typography>
             <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
                 routines to date
             </Typography>

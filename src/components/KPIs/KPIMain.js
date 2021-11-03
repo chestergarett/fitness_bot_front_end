@@ -1,5 +1,3 @@
-//css
-import classes from './KPIMain.module.css';
 //material
 import Paper from '@mui/material/Paper';
 //components
@@ -8,13 +6,14 @@ import CalorieKPI from './CalorieKPI';
 import WorkoutKPI from './WorkoutKPI';
 import TargetKPI from './TargetKPI';
 
-const KPIMain = () => {
+const KPIMain = (props) => {
+
     return (
         <Paper elevation={0} style={{display: 'flex', justifyContent: 'center'}}>
-            <WeightKPI />
-            <CalorieKPI/>
-            <WorkoutKPI/>
-            <TargetKPI/>
+            <WeightKPI kpi={props.kpi.weight}/>
+            <CalorieKPI kpi={props.kpi.calorie_intake}/>
+            <WorkoutKPI kpi={props.kpi.workout_count}/>
+            <TargetKPI kpi={props.kpi.target_weight}/>
         </Paper>
     )
 }
