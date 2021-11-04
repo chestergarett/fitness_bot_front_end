@@ -63,6 +63,7 @@ const UserProvider = (props) => {
 
     const logoutUser = () => {
         window.localStorage.removeItem('userHeaders');
+        window.localStorage.removeItem('userSelectedDietPlan');
         setIsAuthenticated(false);
         window.location.href = "/";
     };

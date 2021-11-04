@@ -35,6 +35,7 @@ const UpdateDietPlanSelected = (props) => {
     const initialState = {
         title: props.selected?.title,
         description: props.selected?.description,
+        notes: props.selected?.notes,
     }
 
     const [formData, setFormData] = useState(initialState)
@@ -46,6 +47,7 @@ const UpdateDietPlanSelected = (props) => {
             "[diet_plan]title": formData.title,
             "[diet_plan]description": formData.description,
             "[diet_plan]end_date": endValue,
+            "[diet_plan]notes": formData.notes,
         }
 
         axios.patch(`https://fitness-bot-avion.herokuapp.com/api/v1/diet_plans/${props.selected?.id}`, qs.stringify(credentials), {

@@ -33,7 +33,7 @@ const DietPlanSelected = (props) => {
                     <EditIcon style={{fontSize: '20px', marginLeft: '.5rem', cursor: 'pointer'}} onClick={openUpdateHandler}/>
                 </span>
             </Typography>
-            <Typography variant="subtitle1" component="div">
+            <Typography variant="subtitle1" component="div" style={{color: '#EE4035'}}>
                 {props.selected?.description}
             </Typography>
             <div className={classes.dates}>
@@ -42,6 +42,9 @@ const DietPlanSelected = (props) => {
                     <Typography variant="caption" display="span">Start: {moment(props.selected?.created_at).format('MMM DD YYYY')}</Typography>
                     <Typography variant="caption" display="span">End: {moment(props.selected?.end_date).format('MMM DD YYYY')}</Typography>
                 </div>
+            </div>
+            <div className={classes.notes}>
+                    <Typography variant="body2" display="div">{props.selected?.notes}</Typography>        
             </div>
         </Card>
         {update ? <UpdateDietPlanSelected onClose={closeUpdateHandler} selected={props.selected}/> : ''}

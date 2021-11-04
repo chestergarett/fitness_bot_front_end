@@ -18,26 +18,19 @@ export default function AppWebsiteVisits({workoutStatus}) {
     {
       name: 'NOT STARTED',
       type: 'column',
-      data: workoutStatus?.filter(a => {return a.status=='NOT STARTED' }).map(a => a.count)
+      data: workoutStatus.map(a =>{if(a.status=='NOT STARTED'){return a.count}else{return 0}})
     },
     {
       name: 'ONGOING',
       type: 'area',
-      data: workoutStatus?.filter(a => {return a.status=='COMPLETED' }).map(a => a.count)
+      data: workoutStatus.map(a =>{if(a.status=='ONGOING'){return a.count}else{return 0}})
     },
     {
       name: 'COMPLETED',
       type: 'line',
-      data: workoutStatus?.filter(a => {return a.status=='COMPLETED' }).map(a => a.count)
+      data: workoutStatus.map(a =>{if(a.status=='COMPLETED'){return a.count}else{return 0}})
     }
   ];
-
-  useEffect(()=>{
-    // console.log(workoutStatus?.filter(a => {return a.status=='NOT STARTED' }).map(a => a.count));
-    // console.log(workoutStatus?.filter(a => {return a.status=='ONGOING' }).map(a => a.count));
-    // console.log(workoutStatus?.filter(a => {return a.status=='COMPLETED' }).map(a => a.count));
-    console.log(workoutStatus?.map(a => a.startDate_js))
-  },[])
 
   const chartOptions = merge(BaseOptionChart(), {
     stroke: { width: [0, 2, 3] },
@@ -51,7 +44,7 @@ export default function AppWebsiteVisits({workoutStatus}) {
       y: {
         formatter: (y) => {
           if (typeof y !== 'undefined') {
-            return `${y.toFixed(0)} visits`;
+            return `${y.toFixed(0)} workouts`;
           }
           return y;
         }

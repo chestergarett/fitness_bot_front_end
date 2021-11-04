@@ -72,7 +72,7 @@ const VerticalLinearStepper = () => {
         .then( (res) => {
             setIsLoading(false)
             setSuccess(true)
-            history.push('/Profile')
+            history.push('/Dashboard')
         })
         .catch( (err) => {
             setIsLoading(false)

@@ -26,3 +26,9 @@
 .mainHeaderIcons{
     color: #EE4035 !important;
 }
+
+.notes{
+    display: flex;
+    margin-top: 1rem;
+    font-style: italic !important;
+}

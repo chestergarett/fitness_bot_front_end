@@ -37,9 +37,9 @@ const CalorieKPI = (props) => {
             <IconWrapperStyle>
                 <GiHamburger style={{fontSize: '30px'}} />
             </IconWrapperStyle>
-            <Typography variant="h3">{props.kpi}</Typography>
+            <Typography variant="h3">{parseFloat(props.kpi).toFixed(2)}</Typography>
             <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
-                calories burned
+                calorie intake
             </Typography>
         </RootStyle>
         

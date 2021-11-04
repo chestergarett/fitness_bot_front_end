@@ -48,14 +48,14 @@ const Sidebar = () => {
         <List>
           {options.map((option) => (
             option.text==='Subscriptions' ?
-              <ListItem button key={option.key} onClick={openModalHandler}>
+              <ListItem button key={v4()} onClick={openModalHandler}>
                 <ListItemIcon>
                   {option.icon}
                 </ListItemIcon>
                 <ListItemText primary={option.text} />
               </ListItem> :
-              <BrowserLink to={option.link}>
-                <ListItem button key={option.text}>
+              <BrowserLink to={option.link} key={v4()}>
+                <ListItem button key={v4()}>
                   <ListItemIcon>
                     {option.icon}
                   </ListItemIcon>

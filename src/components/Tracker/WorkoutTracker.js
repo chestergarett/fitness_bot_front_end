@@ -22,27 +22,29 @@ const WorkoutTracker = (props) => {
   
   //to get all user workouts
   useEffect( ()=> {
+    let array = [];
+    let credential = {start: '', end: '', title: '', id: '', reps: '', target: '', status: '', equipment: '', gifUrl: '', bodyPart: '', sets: '', type: ''}
     axios.get('https://fitness-bot-avion.herokuapp.com/api/v1/workout_plans/user_workouts', 
     { headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')) })
     .then((res)=> {
         (res.data.data).map(event => {
             const start = moment(event.start,'YYYY-MM-DD HH:mm').toDate();
             const end =  moment(event.end,'YYYY-MM-DD HH:mm').toDate();
-            setEvents(events => [...events, 
-              {start: start, 
-                end: end, 
-                title: event.title, 
-                id: event.id, 
-                reps:event.reps, 
-                target: event.target, 
-                status: event.status, 
-                equipment: event.equipment, 
-                gifUrl: event.gifUrl, 
-                bodyPart:  event.bodyPart, 
-                sets: event.sets, 
-                type: event.type }
-              ])
-        }) 
+            credential = {start: start, 
+              end: end, 
+              title: event.title, 
+              id: event.id, 
+              reps:event.reps, 
+              target: event.target, 
+              status: event.status, 
+              equipment: event.equipment, 
+              gifUrl: event.gifUrl, 
+              bodyPart:  event.bodyPart, 
+              sets: event.sets, 
+              type: event.type }
+            array.push(credential)
+        })
+        setEvents(array)
         setUserWorkouts(res.data.data)
     })
     .catch((error) => { 

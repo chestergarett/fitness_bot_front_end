@@ -50,7 +50,7 @@ const EditFood = (props) => {
     const [errorMessageDelete,setErrorMessageDelete] = useState([])
     const [isLoadingDelete, setIsLoadingDelete] = useState(false)
     //forms
-    const [status, setStatus] = useState('NOT STARTED')
+    const [status, setStatus] = useState(props.event.status)
     const [formData, setFormData] = useState(initialState)
 
     const submitHandler = () => {

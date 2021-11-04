@@ -40,7 +40,6 @@ const DashboardMain = () => {
         })
         .then((res)=> {
             setKpi({...kpi, calorie_intake: res.data.calorie_intake, target_weight: res.data.target_weight, workout_count: res.data.workout_count, weight: res.data.weight})
-            console.log(res.data.workout_status)
             setWorkoutPie(res.data.workout_pie)
             setWorkoutStatus(res.data.workout_status)
         })

@@ -29,6 +29,7 @@ const DietPlan = () => {
         setUserDietPlans,
         userSelectedDietPlan, 
         setUserSelectedDietPlan,
+        refresh
          } = useContext(UserContext);
     
     useEffect( ()=> {
@@ -36,11 +37,14 @@ const DietPlan = () => {
         { headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')) })
         .then((res)=>  {
             setUserDietPlans(res.data.data);
-            setUserSelectedDietPlan(res.data.data[0]);
-            console.log(res)
+            setUserSelectedDietPlan(res.data.data[res.data.data.length-1]);
+            if(userSelectedDietPlan.id!==undefined){
+                localStorage.setItem('userSelectedDietPlan', userSelectedDietPlan.id)
+            }
+            console.log(res.data.data[res.data.data.length-1])
         })
         .catch((error)=> console.log(error))
-    }, [])
+    }, [refresh])
     
     return(
         <Drawer>
@@ -50,7 +54,7 @@ const DietPlan = () => {
                     <DietTracker className={classes.calendar}/>
                     <DietPlanSelected selected={userSelectedDietPlan} className={classes.card}/>
                 </div>
-                <FoodOptions dietPlan={userSelectedDietPlan.id}/>
+                <FoodOptions dietPlan={localStorage.getItem('userSelectedDietPlan')!==null ? localStorage.getItem('userSelectedDietPlan') : userSelectedDietPlan.id}/>
             </div>
         </Drawer>
     )       

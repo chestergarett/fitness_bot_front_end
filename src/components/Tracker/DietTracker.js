@@ -39,6 +39,18 @@ const DietTracker = () => {
         }else{
           backgroundColor = '#29b6f6'
       }
+
+      let style = {
+            backgroundColor: backgroundColor,
+            borderRadius: '0px',
+            opacity: 0.8,
+            color: 'black',
+            border: '0px',
+            display: 'block'
+        };
+        return{
+            style: style
+        };
     }
 
     //to get all user workouts
@@ -46,6 +58,8 @@ const DietTracker = () => {
         const credentials = {
             diet_plan_id: userSelectedDietPlan.id,
         }
+        let array = [];
+        let credential = {start: '', end: '', title: '', id: '', ingredientLines: '', totalWeight: '', mealType: '', dishType: '', calories: '', media: '', status: ''}
 
         axios.get('https://fitness-bot-avion.herokuapp.com/api/v1/foods', 
         { headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')),
@@ -55,8 +69,7 @@ const DietTracker = () => {
                 (res.data.data).map(event => {
                     const start = moment(event.start,'YYYY-MM-DD HH:mm').toDate();
                     const end =  moment(event.end,'YYYY-MM-DD HH:mm').toDate();
-                    setEvents(events => [...events, 
-                    {start: start, 
+                    credential = {start: start, 
                         end: end, 
                         id: event.id,
                         title: event.title, 
@@ -67,14 +80,13 @@ const DietTracker = () => {
                         calories: event.calories,
                         media: event.media,
                         status: event.status}
-                    ])
-                    console.log(event)
+                    array.push(credential)
+                    console.log(credential)
                 }) 
-                console.log(res.data.data)
-                console.log(userSelectedDietPlan.id)
+                setEvents(array)
             })
             .catch((error) => { 
-                console.log(error.response.data.error)
+                console.log(error.response)
             })
         }
     ,[refresh])
