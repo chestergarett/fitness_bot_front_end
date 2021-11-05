@@ -79,7 +79,8 @@ const DietTracker = ({dietPlan}) => {
                         dishType: event.dishType,
                         calories: event.calories,
                         media: event.media,
-                        status: event.status}
+                        status: event.status,
+                        food_type: event.food_type}
                     array.push(credential)
                     console.log(credential)
                 }) 

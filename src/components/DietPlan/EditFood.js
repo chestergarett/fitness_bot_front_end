@@ -104,7 +104,7 @@ const EditFood = (props) => {
         <ModalEditFood onClose={props.onClose}>
             <Card key={v4()} className={classes.card}>
                 <Typography className={classes.header} variant="subtitle2" component="div">
-                            {props.event.title}
+                            {props.event.title} <span className={classes.subheader}> {props.event.food_type} </span>
                 </Typography>
                 <div className={classes.details}>
                     <div className={classes.header_and_image}>
