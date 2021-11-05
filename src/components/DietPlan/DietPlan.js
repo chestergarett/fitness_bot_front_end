@@ -51,7 +51,7 @@ const DietPlan = () => {
             <DrawerHeader />
             <div className={classes.section}>
                 <div className={classes.main}>
-                    <DietTracker className={classes.calendar}/>
+                    <DietTracker className={classes.calendar} dietPlan={localStorage.getItem('userSelectedDietPlan')!==null ? localStorage.getItem('userSelectedDietPlan') : userSelectedDietPlan.id}/>
                     <DietPlanSelected selected={userSelectedDietPlan} className={classes.card}/>
                 </div>
                 <FoodOptions dietPlan={localStorage.getItem('userSelectedDietPlan')!==null ? localStorage.getItem('userSelectedDietPlan') : userSelectedDietPlan.id}/>

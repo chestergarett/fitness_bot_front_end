@@ -12,7 +12,7 @@ import EditFood from '../DietPlan/EditFood';
 
 const localizer = momentLocalizer(moment)
 
-const DietTracker = () => {
+const DietTracker = ({dietPlan}) => {
     const { userSelectedDietPlan, refresh, userHeaders } = useContext(UserContext);
     const [events, setEvents] = useState([{}])
     const [event, setEvent] = useState({})
@@ -56,14 +56,14 @@ const DietTracker = () => {
     //to get all user workouts
     useEffect( ()=> {
         const credentials = {
-            diet_plan_id: userSelectedDietPlan.id,
+            diet_plan_id: dietPlan,
         }
         let array = [];
         let credential = {start: '', end: '', title: '', id: '', ingredientLines: '', totalWeight: '', mealType: '', dishType: '', calories: '', media: '', status: ''}
 
         axios.get('https://fitness-bot-avion.herokuapp.com/api/v1/foods', 
         { headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')),
-            params:  credentials, 
+         params:  credentials, 
         })
             .then((res)=> {
                 (res.data.data).map(event => {
@@ -84,12 +84,14 @@ const DietTracker = () => {
                     console.log(credential)
                 }) 
                 setEvents(array)
+                console.log(dietPlan)
             })
             .catch((error) => { 
                 console.log(error.response)
+                console.log(dietPlan)
             })
         }
-    ,[refresh])
+    ,[refresh,userSelectedDietPlan])
 
     
 

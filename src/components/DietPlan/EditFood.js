@@ -67,7 +67,7 @@ const EditFood = (props) => {
             headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')),
         })
         .then( (res) => { 
-            setSuccessMessageUpdate('Successfully updated workout.')
+            setSuccessMessageUpdate('Successfully updated food.')
             setSuccessUpdate(true)
             setErrorUpdate(false)
             setIsLoadingUpdate(false)
@@ -87,7 +87,7 @@ const EditFood = (props) => {
                 headers: window.localStorage.getItem('userHeaders')===null ? userHeaders : JSON.parse(window.localStorage.getItem('userHeaders')),
             })
             .then( (res) => { 
-            setSuccessMessageDelete('Successfully deleted workout.')
+            setSuccessMessageDelete('Successfully deleted food.')
             setSuccessDelete(true)
             setErrorDelete(false)
             setIsLoadingDelete(false)

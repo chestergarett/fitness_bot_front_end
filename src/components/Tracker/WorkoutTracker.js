@@ -96,7 +96,7 @@ const styleEvents = (event) => {
       views={['month', 'week', 'day', 'agenda']}
       showMultiDayTimes
       defaultDate={new Date()}
-      style={{ style, height: 500 }}
+      style={{ style, height: 500, width: 1300 }}
       onSelectEvent={event => openModalHandler(event)}
       eventPropGetter={event => styleEvents(event)}
     />
