@@ -18,8 +18,8 @@ import Divider from '@mui/material/Divider';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const initialState = {
-    email: '',
-    password: '',
+    email: 'test@email.com',
+    password: 'password',
 }
 
 const LoginForm = () => {
@@ -41,6 +41,7 @@ const LoginForm = () => {
                 label="Email" 
                 variant="outlined" 
                 className={classes.input}
+                defaultValue={formData.email}
                 onChange={ (e) => setFormData({...formData, email: e.target.value})}
             />
             <TextField 
@@ -49,6 +50,7 @@ const LoginForm = () => {
                 type="password" 
                 variant="outlined" 
                 className={classes.input}
+                defaultValue={formData.password}
                 onChange={ (e) => setFormData({...formData, password: e.target.value})}
             />
             <Link href="#" underline="hover" className={classes.link}>
